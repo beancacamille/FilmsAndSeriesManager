@@ -48,18 +48,22 @@ namespace FilmsAndSeriesManagerModel
 
             modelBuilder.Entity<Series>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ShowId)
+                    .HasName("PK__Series__6DE3E0D2DF37104C");
+
+                entity.Property(e => e.ShowId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ShowID");
 
                 entity.Property(e => e.Episode).HasDefaultValueSql("((0))");
 
                 entity.Property(e => e.Season).HasDefaultValueSql("((0))");
 
-                entity.Property(e => e.ShowId).HasColumnName("ShowID");
-
                 entity.HasOne(d => d.Show)
-                    .WithMany()
-                    .HasForeignKey(d => d.ShowId)
-                    .HasConstraintName("FK__Series__ShowID__33D4B598");
+                    .WithOne(p => p.Series)
+                    .HasForeignKey<Series>(d => d.ShowId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Series__ShowID__4BAC3F29");
             });
 
             modelBuilder.Entity<Show>(entity =>
@@ -83,7 +87,7 @@ namespace FilmsAndSeriesManagerModel
                     .WithMany(p => p.Shows)
                     .HasForeignKey(d => d.Status)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Shows__Status__37A5467C");
+                    .HasConstraintName("FK__Shows__Status__49C3F6B7");
             });
 
             modelBuilder.Entity<ShowGenre>(entity =>
@@ -113,7 +117,9 @@ namespace FilmsAndSeriesManagerModel
             {
                 entity.ToTable("ShowStatus");
 
-                entity.Property(e => e.Id).HasColumnName("ID");
+                entity.Property(e => e.Id)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ID");
 
                 entity.Property(e => e.Name)
                     .IsRequired()

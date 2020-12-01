@@ -17,5 +17,6 @@ namespace FilmsAndSeriesManagerModel
         public string Notes { get; set; }
 
         public virtual ShowStatus StatusNavigation { get; set; }
+        public virtual Series Series { get; set; }
     }
 }

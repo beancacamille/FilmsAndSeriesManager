@@ -7,7 +7,7 @@ namespace FilmsAndSeriesManagerModel
 {
     public partial class Series
     {
-        public int? ShowId { get; set; }
+        public int ShowId { get; set; }
         public int? Season { get; set; }
         public int? Episode { get; set; }
 
