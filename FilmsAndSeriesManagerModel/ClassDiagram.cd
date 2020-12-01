@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="FilmsAndSeriesManagerModel.FilmsAndSeriesManagerContext">
+    <Position X="6.75" Y="3.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAQAQAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>FilmsAndSeriesManagerContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmsAndSeriesManagerModel.Show">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAEAAAAAEhAAAAAAAAAEAAABAAACQAAAAAAAAE=</HashCode>
+      <FileName>Show.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="StatusNavigation" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ShowGenres" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FilmsAndSeriesManagerModel.ShowGenre">
+    <Position X="4" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAIAAAAAIAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShowGenre.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FilmsAndSeriesManagerModel.Genre">
+    <Position X="7.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Genre.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ShowGenres" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="FilmsAndSeriesManagerModel.Series">
+    <Position X="0.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAABAQAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Series.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Show" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="FilmsAndSeriesManagerModel.ShowStatus">
+    <Position X="4" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShowStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
