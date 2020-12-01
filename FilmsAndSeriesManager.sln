@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmsAndSeriesManagerModel"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmsAndSeriesManagerWPF", "FilmsAndSeriesManagerWPF\FilmsAndSeriesManagerWPF.csproj", "{D2691287-A18D-432C-AEA1-B4701A0E7E66}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilmsAndSeriesManagerBusiness", "FilmsAndSeriesManagerBusiness\FilmsAndSeriesManagerBusiness.csproj", "{C99A886C-9C9E-443C-926C-078427287165}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D2691287-A18D-432C-AEA1-B4701A0E7E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2691287-A18D-432C-AEA1-B4701A0E7E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2691287-A18D-432C-AEA1-B4701A0E7E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C99A886C-9C9E-443C-926C-078427287165}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C99A886C-9C9E-443C-926C-078427287165}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C99A886C-9C9E-443C-926C-078427287165}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C99A886C-9C9E-443C-926C-078427287165}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
