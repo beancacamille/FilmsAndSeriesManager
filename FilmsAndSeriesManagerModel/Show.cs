@@ -18,7 +18,7 @@ namespace FilmsAndSeriesManagerModel
         public string Url { get; set; }
         public int Type { get; set; }
         public int Status { get; set; }
-        public bool? Favourite { get; set; }
+        public bool Favourite { get; set; }
         public string Notes { get; set; }
 
         public virtual ShowStatus StatusNavigation { get; set; }

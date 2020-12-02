@@ -14,6 +14,7 @@ namespace FilmsAndSeriesManagerBusiness
         public List<Show> PlanToWatch { get; set; }
         public List<Show> Finished { get; set; }
         public List<Show> Dropped { get; set; }
+        public Show SelectedShow { get; set; }
 
         public void PopulateShowLists()
         {
@@ -54,7 +55,7 @@ namespace FilmsAndSeriesManagerBusiness
         {
             using (var db = new FilmsAndSeriesManagerContext())
             {
-                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status };
+                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status};
                 db.Shows.Add(newFilm);
                 db.SaveChanges();
             }
@@ -64,7 +65,7 @@ namespace FilmsAndSeriesManagerBusiness
         {
             using (var db = new FilmsAndSeriesManagerContext())
             {
-                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status };
+                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status};
                 db.Shows.Add(newFilm);
                 db.SaveChanges();
 
@@ -72,6 +73,30 @@ namespace FilmsAndSeriesManagerBusiness
                 var newSeries = new Series { Show = selectedFilm, Season = season, Episode = episode };
                 db.Series.Add(newSeries);
 
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateFavourite()
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                var selectedShow = db.Shows.Where(s => s.Id == SelectedShow.Id).FirstOrDefault();
+                selectedShow.Favourite = !selectedShow.Favourite;
+                db.SaveChanges();
+            }
+        }
+
+        public void UpdateFilm(string title, string url, int score, int status, string notes)
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                var selectedShow = db.Shows.Where(s => s.Id == SelectedShow.Id).FirstOrDefault();
+                selectedShow.Title = title;
+                selectedShow.Url = url;
+                selectedShow.Score = score;
+                selectedShow.Status = status;
+                selectedShow.Notes = notes;
                 db.SaveChanges();
             }
         }

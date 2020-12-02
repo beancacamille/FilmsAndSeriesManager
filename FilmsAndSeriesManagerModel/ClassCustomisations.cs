@@ -43,7 +43,7 @@ namespace FilmsAndSeriesManagerModel
 
         public override string ToString()
         {
-            return $"{Score}\t{Title}";
+            return $"{Score}\t{(Type == 0 ? "Film" : "Series")}\t{Title}";
         }
     }
 

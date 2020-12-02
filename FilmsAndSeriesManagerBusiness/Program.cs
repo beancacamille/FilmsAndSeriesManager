@@ -18,6 +18,21 @@ namespace FilmsAndSeriesManagerBusiness
             //selectedShow.AddGenre(3);
             //selectedShow.AddGenres(new List<int> { 0, 1, 2, 3 });
             //Console.WriteLine("Genres added");
+
+            //methods.AddFilm("Lalala", "", 0, 0, 0);
+            //var selectedFilm = methods.GetShowByTitle("Lalala");
+            //Console.WriteLine(selectedFilm.Favourite);
+            //methods.SelectedShow = selectedFilm;
+            //methods.UpdateFavourite();
+            //selectedFilm = methods.GetShowByTitle("Lalala");
+            //Console.WriteLine(selectedFilm.Favourite);
+
+            methods.AddFilm("Butler", "", 10, 0, 3);
+            var selectedShow = methods.GetShowByTitle("Butler");
+            methods.SelectedShow = selectedShow;
+            methods.UpdateFilm("Butler", "a.com", 9, 2, "This is a note.");
+            selectedShow = methods.GetShowByTitle("Butler");
+            Console.WriteLine(selectedShow.Url + " " + selectedShow.Notes);
         }
     }
 }

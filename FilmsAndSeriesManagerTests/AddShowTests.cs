@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FilmsAndSeriesManagerTests
 {
-    public class AddFilmTest
+    public class AddFilmTests
     {
         Methods methods = new Methods();
 
@@ -51,7 +51,7 @@ namespace FilmsAndSeriesManagerTests
         }
     }
 
-    public class AddSeriesTest
+    public class AddSeriesTests
     {
         Methods methods = new Methods();
 
