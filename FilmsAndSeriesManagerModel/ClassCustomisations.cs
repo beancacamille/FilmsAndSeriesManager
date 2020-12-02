@@ -40,6 +40,11 @@ namespace FilmsAndSeriesManagerModel
                 db.SaveChanges();
             }
         }
+
+        public override string ToString()
+        {
+            return $"{Title}\t\t{Score}";
+        }
     }
 
     public partial class Genre

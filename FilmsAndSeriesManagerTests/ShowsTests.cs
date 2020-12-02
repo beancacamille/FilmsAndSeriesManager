@@ -44,7 +44,7 @@ namespace FilmsAndSeriesManagerTests
             using (var db = new FilmsAndSeriesManagerContext())
             {
                 int count = db.Shows.ToList().Count();
-                methods.AddFilm("Your Name", "", 0, 0);
+                methods.AddFilm("Your Name", "", 0, 0, 0);
 
                 Assert.AreEqual(count + 1, db.Shows.ToList().Count());
             }
@@ -106,7 +106,7 @@ namespace FilmsAndSeriesManagerTests
             {
                 int showsCount = db.Shows.ToList().Count();
                 int seriesCount = db.Series.ToList().Count();
-                methods.AddSeries("Detective Conan", "", 1, 0, 0, 1);
+                methods.AddSeries("Detective Conan", "", 0, 1, 0, 0, 1);
 
                 Assert.AreEqual(showsCount + 1, db.Shows.ToList().Count());
                 Assert.AreEqual(seriesCount + 1, db.Series.ToList().Count());

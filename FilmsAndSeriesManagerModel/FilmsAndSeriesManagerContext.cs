@@ -74,8 +74,6 @@ namespace FilmsAndSeriesManagerModel
 
                 entity.Property(e => e.Notes).IsUnicode(false);
 
-                entity.Property(e => e.Score).HasColumnType("decimal(3, 1)");
-
                 entity.Property(e => e.Title)
                     .IsRequired()
                     .HasMaxLength(255)

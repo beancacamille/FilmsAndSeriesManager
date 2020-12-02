@@ -14,7 +14,7 @@ namespace FilmsAndSeriesManagerModel
 
         public int Id { get; set; }
         public string Title { get; set; }
-        public decimal? Score { get; set; }
+        public int? Score { get; set; }
         public string Url { get; set; }
         public int Type { get; set; }
         public int Status { get; set; }
