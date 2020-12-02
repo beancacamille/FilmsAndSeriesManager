@@ -6,4 +6,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FilmsAndSeriesManagerBusiness\FilmsAndSeriesManagerBusiness.csproj" />
+    <ProjectReference Include="..\FilmsAndSeriesManagerModel\FilmsAndSeriesManagerModel.csproj" />
+  </ItemGroup>
+
 </Project>
