@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FilmsAndSeriesManagerBusiness;
-using FilmsAndSeriesManagerModel;
 
 namespace FilmsAndSeriesManagerWPF
 {
@@ -23,10 +22,16 @@ namespace FilmsAndSeriesManagerWPF
     public partial class MainWindow : Window
     {
         Methods methods = new Methods();
+        Film filmWindow = new Film();
 
         public MainWindow()
         {
             InitializeComponent();
+            UpdateLists();
+        }
+
+        public void UpdateLists()
+        {
             methods.PopulateShowLists();
             ListWatching.ItemsSource = methods.Watching;
             ListPlanToWatch.ItemsSource = methods.PlanToWatch;
@@ -36,8 +41,9 @@ namespace FilmsAndSeriesManagerWPF
 
         private void BtnAddFilm_Click(object sender, RoutedEventArgs e)
         {
-            var filmWindow = new Film();
+            IsEnabled = false;
             filmWindow.Show();
+            filmWindow.Owner = this;
         }
     }
 }

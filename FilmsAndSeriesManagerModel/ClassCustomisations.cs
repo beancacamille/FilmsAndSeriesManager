@@ -43,7 +43,15 @@ namespace FilmsAndSeriesManagerModel
 
         public override string ToString()
         {
-            return $"{Title}\t\t{Score}";
+            return $"{Score}\t{Title}";
+        }
+    }
+
+    public partial class ShowStatus
+    {
+        public override string ToString()
+        {
+            return Name;
         }
     }
 
