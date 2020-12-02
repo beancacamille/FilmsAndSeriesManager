@@ -6,8 +6,27 @@ using FilmsAndSeriesManagerModel;
 
 namespace FilmsAndSeriesManagerBusiness
 {
+
     public class Methods
     {
+        public List<Genre> GenreList { get; set; }
+
+        public List<ShowGenre> RetrieveAllGenre()
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                return db.ShowGenres.ToList();
+            }
+        }
+
+        public Show GetShowByTitle(string title)
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                return db.Shows.Where(s => s.Title == title).FirstOrDefault();
+            }
+        }
+
         public void AddFilm(string title, string url, int type, int status)
         {
             using (var db = new FilmsAndSeriesManagerContext())
