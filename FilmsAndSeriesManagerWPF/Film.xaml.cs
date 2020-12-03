@@ -30,6 +30,10 @@ namespace FilmsAndSeriesManagerWPF
             {
                 HideSeriesDetails();
             }
+            if (filmMethods.IsShowEdit)
+            {
+                EditMode();
+            }
         }
 
         private void SliderScore_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -45,23 +49,28 @@ namespace FilmsAndSeriesManagerWPF
             int status = ComboStatus.SelectedIndex;
             string notes = TxtNotes.Text;
 
-            if (filmMethods.IsSeries)
+            if (filmMethods.IsShowEdit)
             {
-                int season = int.Parse(TxtSeason.Text);
-                int episode = int.Parse(TxtEpisode.Text);
-                filmMethods.AddSeries(title, url, score, 1, status, season, episode, notes);
-                filmMethods.IsSeries = false;
+                filmMethods.UpdateFilm(title, url, score, status, notes);
             }
             else
             {
-                filmMethods.AddFilm(title, url, score, 0, status, notes);
+                if (filmMethods.IsSeries)
+                {
+                    int season = int.Parse(TxtSeason.Text);
+                    int episode = int.Parse(TxtEpisode.Text);
+                    filmMethods.AddSeries(title, url, score, 1, status, season, episode, notes);
+                }
+                else
+                {
+                    filmMethods.AddFilm(title, url, score, 0, status, notes);
+                }
             }
             CloseWindow();
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            filmMethods.IsSeries = false;
             CloseWindow();
         }
 
@@ -73,8 +82,21 @@ namespace FilmsAndSeriesManagerWPF
             TxtEpisode.Visibility = Visibility.Hidden;
         }
 
+        private void EditMode()
+        {
+            BtnAdd.Content = "Save";
+            ComboStatus.SelectedIndex = filmMethods.SelectedShow.Status;
+            TxtTitle.Text = filmMethods.SelectedShow.Title;
+            TxtUrl.Text = filmMethods.SelectedShow.Url;
+            SliderScore.Value = (double)filmMethods.SelectedShow.Score;
+            TxtNotes.Text = filmMethods.SelectedShow.Notes;
+        }
+
         private void CloseWindow()
         {
+            filmMethods.IsSeries = false;
+            filmMethods.IsShowEdit = false;
+
             var mainWindow = new MainWindow(filmMethods);
             Hide();
             mainWindow.Show();

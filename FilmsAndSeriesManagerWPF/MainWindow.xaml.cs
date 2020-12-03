@@ -131,6 +131,7 @@ namespace FilmsAndSeriesManagerWPF
         private void BtnEditShow_Click(object sender, RoutedEventArgs e)
         {
             mainWindowMethods.IsShowEdit = true;
+            OpenFilmWindow();
         }
     }
 }
