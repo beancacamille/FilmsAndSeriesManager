@@ -8,41 +8,82 @@
         Title="Films and Series Manager" Height="800" Width="1400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="5"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="275"/>
-            <ColumnDefinition Width="275"/>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="5"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
-        <Button x:Name="BtnAddFilm" Content="Add Film" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" Click="BtnAddFilm_Click"/>
-        <Button x:Name="BtnAddSeries" Content="Add Series" Grid.Column="2" FontSize="20"/>
-        <ListBox x:Name="ListWatching" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
-        <Label x:Name="LblWatching" Content="Watching" Grid.Column="1" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" FontSize="24" VerticalContentAlignment="Bottom"/>
-        <ListBox x:Name="ListPlanToWatch" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
-        <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Column="1" Grid.Row="5" FontSize="24" VerticalContentAlignment="Bottom"/>
-        <ListBox x:Name="ListFinished" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
-        <Label x:Name="LblFinished" Content="Finished" Grid.Column="1" Grid.Row="9" FontSize="24" VerticalContentAlignment="Bottom"/>
-        <ListBox x:Name="ListDropped" Grid.Column="1" Grid.Row="14" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
-        <Label x:Name="LblDropped" Content="Dropped" Grid.Column="1" Grid.Row="13" FontSize="24" VerticalContentAlignment="Bottom"/>
+        <Button x:Name="BtnAddFilm" Content="Add Film" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" Click="BtnAddFilm_Click"/>
+        <Button x:Name="BtnAddSeries" Content="Add Series" Grid.Column="4" FontSize="20"/>
+
+        <Grid Grid.Column="1" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="LblSort" Content="Sort" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
+            <RadioButton x:Name="RadioTitle" Content="by Title" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="18" GroupName="SortBy" VerticalContentAlignment="Center" Checked="Radio_Checked"/>
+            <RadioButton x:Name="RadioScore" Content="by Score" Grid.Row="3" FontSize="18" GroupName="SortBy" VerticalContentAlignment="Center" Grid.Column="1" Checked="Radio_Checked"/>
+        </Grid>
+
+        <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ListBox x:Name="ListWatching" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" Grid.Row="1"/>
+            <Label x:Name="LblWatching" Content="Watching" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="24" VerticalContentAlignment="Bottom"/>
+            <ListBox x:Name="ListPlanToWatch" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
+            <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Row="4" FontSize="24" VerticalContentAlignment="Bottom"/>
+            <ListBox x:Name="ListFinished" Grid.Row="9" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
+            <Label x:Name="LblFinished" Content="Finished" Grid.Row="8" FontSize="24" VerticalContentAlignment="Bottom"/>
+            <ListBox x:Name="ListDropped" Grid.Row="13" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
+            <Label x:Name="LblDropped" Content="Dropped" Grid.Row="12" FontSize="24" VerticalContentAlignment="Bottom"/>
+        </Grid>
     </Grid>
 </Window>

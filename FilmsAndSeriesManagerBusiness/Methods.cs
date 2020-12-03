@@ -9,22 +9,28 @@ namespace FilmsAndSeriesManagerBusiness
 {
     public class Methods
     {
-        public List<Genre> GenreList { get; set; }
+        public List<Show> ShowList { get; set; }
         public List<Show> Watching { get; set; }
         public List<Show> PlanToWatch { get; set; }
         public List<Show> Finished { get; set; }
         public List<Show> Dropped { get; set; }
+        public List<Genre> GenreList { get; set; }
         public Show SelectedShow { get; set; }
 
-        public void PopulateShowLists()
+        public void RetrieveAllShows()
         {
             using (var db = new FilmsAndSeriesManagerContext())
             {
-                Watching = db.Shows.Include(s => s.Series).Where(s => s.Status == 0).ToList();
-                PlanToWatch = db.Shows.Include(s => s.Series).Where(s => s.Status == 1).ToList();
-                Finished = db.Shows.Include(s => s.Series).Where(s => s.Status == 2).ToList();
-                Dropped = db.Shows.Include(s => s.Series).Where(s => s.Status == 3).ToList();
+                ShowList =  db.Shows.Include(s => s.Series).ToList();
             }
+        }
+
+        public void PopulateShowCategoryLists()
+        {
+            Watching = ShowList.Where(s => s.Status == 0).ToList();
+            PlanToWatch = ShowList.Where(s => s.Status == 1).ToList();
+            Finished = ShowList.Where(s => s.Status == 2).ToList();
+            Dropped = ShowList.Where(s => s.Status == 3).ToList();
         }
 
         public List<ShowStatus> RetrieveAllShowStatus()
@@ -99,6 +105,16 @@ namespace FilmsAndSeriesManagerBusiness
                 selectedShow.Notes = notes;
                 db.SaveChanges();
             }
+        }
+
+        public void SortByTitle()
+        {
+            ShowList = ShowList.OrderBy(s => s.Title).ThenByDescending(s => s.Score).ToList();
+        }
+
+        public void SortByScore()
+        {
+            ShowList = ShowList.OrderByDescending(s => s.Score).ToList();
         }
     }
 }

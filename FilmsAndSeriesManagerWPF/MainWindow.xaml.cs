@@ -27,12 +27,13 @@ namespace FilmsAndSeriesManagerWPF
         public MainWindow()
         {
             InitializeComponent();
-            UpdateLists();
+            methods.RetrieveAllShows();
+            RadioTitle.IsChecked = true;
         }
 
         public void UpdateLists()
         {
-            methods.PopulateShowLists();
+            methods.PopulateShowCategoryLists();
             ListWatching.ItemsSource = methods.Watching;
             ListPlanToWatch.ItemsSource = methods.PlanToWatch;
             ListFinished.ItemsSource = methods.Finished;
@@ -44,6 +45,20 @@ namespace FilmsAndSeriesManagerWPF
             IsEnabled = false;
             filmWindow.Show();
             filmWindow.Owner = this;
+        }
+
+        private void Radio_Checked(object sender, RoutedEventArgs e)
+        {
+            var radioName = (sender as RadioButton).Name;
+            if (radioName == "RadioTitle")
+            {
+                methods.SortByTitle();
+            }
+            else
+            {
+                methods.SortByScore();
+            }
+            UpdateLists();
         }
     }
 }

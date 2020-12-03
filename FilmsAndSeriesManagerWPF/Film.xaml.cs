@@ -40,6 +40,15 @@ namespace FilmsAndSeriesManagerWPF
             int type = 0;
             int status = ComboStatus.SelectedIndex;
             methods.AddFilm(title, url, score, type, status);
+            methods.RetrieveAllShows();
+            if (((MainWindow)this.Owner).RadioTitle.IsChecked == true)
+            {
+                methods.SortByTitle();
+            }
+            else
+            {
+                methods.SortByScore();
+            }
             ((MainWindow)this.Owner).UpdateLists();
             ((MainWindow)this.Owner).IsEnabled = true;
             Hide();
