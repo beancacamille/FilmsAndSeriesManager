@@ -107,6 +107,26 @@ namespace FilmsAndSeriesManagerBusiness
             }
         }
 
+        public void DeleteShow()
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                var selectedShow = db.Shows.Where(s => s.Id == SelectedShow.Id).FirstOrDefault();
+                if (selectedShow.Type == 1)
+                {
+                    var selectedSeries = db.Series.Where(s => s.ShowId == selectedShow.Id).FirstOrDefault();
+                    db.Series.Remove(selectedSeries);
+                }
+                var showGenres = db.ShowGenres.Where(s => s.ShowId == selectedShow.Id);
+                foreach (var item in showGenres)
+                {
+                    db.ShowGenres.Remove(item);
+                }
+                db.Shows.Remove(selectedShow);
+                db.SaveChanges();
+            }
+        }
+
         public void SortByTitle()
         {
             ShowList = ShowList.OrderBy(s => s.Title).ThenByDescending(s => s.Score).ToList();

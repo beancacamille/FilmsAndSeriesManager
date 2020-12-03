@@ -27,12 +27,21 @@ namespace FilmsAndSeriesManagerBusiness
             //selectedFilm = methods.GetShowByTitle("Lalala");
             //Console.WriteLine(selectedFilm.Favourite);
 
-            methods.AddFilm("Butler", "", 10, 0, 3);
-            var selectedShow = methods.GetShowByTitle("Butler");
-            methods.SelectedShow = selectedShow;
-            methods.UpdateFilm("Butler", "a.com", 9, 2, "This is a note.");
-            selectedShow = methods.GetShowByTitle("Butler");
-            Console.WriteLine(selectedShow.Url + " " + selectedShow.Notes);
+            //methods.AddFilm("Butler", "", 10, 0, 3);
+            //var selectedShow = methods.GetShowByTitle("Butler");
+            //methods.SelectedShow = selectedShow;
+            //methods.UpdateFilm("Butler", "a.com", 9, 2, "This is a note.");
+            //selectedShow = methods.GetShowByTitle("Butler");
+            //Console.WriteLine(selectedShow.Url + " " + selectedShow.Notes);
+
+            //methods.RetrieveAllShows();
+            //int count = methods.ShowList.Count;
+            //var selectedShow = methods.GetShowByTitle("Butler");
+            //methods.SelectedShow = selectedShow;
+            //methods.DeleteShow();
+            //methods.RetrieveAllShows();
+            //int count2 = methods.ShowList.Count;
+            //Console.WriteLine(count + " " + count2);
         }
     }
 }
