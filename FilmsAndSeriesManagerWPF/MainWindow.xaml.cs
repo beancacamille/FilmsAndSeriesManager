@@ -31,6 +31,7 @@ namespace FilmsAndSeriesManagerWPF
             mainWindowMethods.RetrieveAllShows();
             RadioTitle.IsChecked = true;
             ListWatching.SelectedIndex = 0;
+            mainWindowMethods.GenreFilter = new List<int>();
         }
 
         public MainWindow(Methods methods)
@@ -86,16 +87,25 @@ namespace FilmsAndSeriesManagerWPF
 
         private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            mainWindowMethods.RetrieveAllShows();
-            mainWindowMethods.SearchByTitle(TxtSearch.Text);
-            SortList();
-            UpdateLists();
+            SearchFilterSort();
         }
 
         private void Radio_Checked(object sender, RoutedEventArgs e)
         {
             SortList();
             UpdateLists();
+        }
+
+        private void Check_Checked(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.GenreFilter.Add(int.Parse((sender as CheckBox).Tag.ToString()));
+            SearchFilterSort();
+        }
+
+        private void Check_Unchecked(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.GenreFilter.Remove(int.Parse((sender as CheckBox).Tag.ToString()));
+            SearchFilterSort();
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -136,6 +146,15 @@ namespace FilmsAndSeriesManagerWPF
             {
                 mainWindowMethods.SortByScore();
             }
+        }
+
+        private void SearchFilterSort()
+        {
+            mainWindowMethods.RetrieveAllShows();
+            mainWindowMethods.SearchByTitle(TxtSearch.Text);
+            mainWindowMethods.FilterByGenre();
+            SortList();
+            UpdateLists();
         }
 
         private void ShowSeriesDetails()

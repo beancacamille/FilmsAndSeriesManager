@@ -23,6 +23,21 @@ namespace FilmsAndSeriesManagerModel
             }
         }
 
+        public List<int> GetAllGenreInt()
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                var genreList = new List<int>();
+                var showGenreQuery = db.ShowGenres.Include(s => s.Genre).Where(s => s.ShowId == Id);
+
+                foreach (var item in showGenreQuery)
+                {
+                    genreList.Add(item.Genre.Id);
+                }
+                return genreList;
+            }
+        }
+
         public string GetAllGenreString()
         {
             var genreListString = new StringBuilder();

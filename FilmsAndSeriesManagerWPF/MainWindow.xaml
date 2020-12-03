@@ -47,12 +47,38 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Label x:Name="LblSort" Content="Sort" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
-            <RadioButton x:Name="RadioTitle" Content="by Title" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="18" GroupName="SortBy" VerticalContentAlignment="Center" Checked="Radio_Checked"/>
-            <RadioButton x:Name="RadioScore" Content="by Score" Grid.Row="3" FontSize="18" GroupName="SortBy" VerticalContentAlignment="Center" Grid.Column="1" Checked="Radio_Checked"/>
+            <RadioButton x:Name="RadioTitle" Content="by Title" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="16" GroupName="SortBy" VerticalContentAlignment="Center" Checked="Radio_Checked"/>
+            <RadioButton x:Name="RadioScore" Content="by Score" Grid.Row="3" FontSize="16" GroupName="SortBy" VerticalContentAlignment="Center" Grid.Column="1" Checked="Radio_Checked"/>
             <Label x:Name="LblSearch" Content="Search" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
             <TextBox x:Name="TxtSearch" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" TextChanged="TxtSearch_TextChanged"/>
+            <Label x:Name="LblGenreFilter" Content="Filter by Genre" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="4"/>
+            <CheckBox x:Name="CheckAction" Content="Action" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="16" Tag="0" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckAdventure" Content="Adventure" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" FontSize="16" Tag="1" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckComedy" Content="Comedy" Grid.Row="6" VerticalContentAlignment="Center" FontSize="16" Tag="2" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckDrama" Content="Drama" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" FontSize="16" Tag="3" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckEcchi" Content="Ecchi" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Tag="4" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckFantasy" Content="Fantasy" Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Tag="5" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckHarem" Content="Harem" Grid.Row="8" VerticalContentAlignment="Center" FontSize="16" Tag="6" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckHistorical" Content="Historical" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" FontSize="16" Tag="7" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckHorror" Content="Horror" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Tag="8" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckIsekai" Content="Isekai" Grid.Column="1" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Tag="9" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMagic" Content="Magic" Grid.Row="10" VerticalContentAlignment="Center" FontSize="16" Tag="10" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMartialArts" Content="Martial Arts" Grid.Column="1" Grid.Row="10" VerticalContentAlignment="Center" FontSize="16" Tag="11" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMecha" Content="Mecha" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Tag="12" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMystery" Content="Mystery" Grid.Column="1" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Tag="13" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckPsychological" Content="Psychological" Grid.Row="12" VerticalContentAlignment="Center" FontSize="16" Tag="14" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckRomance" Content="Romance" Grid.Column="1" Grid.Row="12" VerticalContentAlignment="Center" FontSize="16" Tag="15" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSchoolLife" Content="School Life" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Tag="16" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSciFi" Content="Sci-Fi" Grid.Column="1" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Tag="17" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckShoujo" Content="Shoujo" Grid.Row="14" VerticalContentAlignment="Center" FontSize="16" Tag="18" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckShounen" Content="Shounen" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" FontSize="16" Tag="19" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSports" Content="Sports" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Tag="20" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSupernatural" Content="Supernatural" Grid.Column="1" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Tag="21" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckTragedy" Content="Tragedy" Grid.Row="16" VerticalContentAlignment="Center" FontSize="16" Tag="22" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckVampire" Content="Vampire" Grid.Column="1" Grid.Row="16" VerticalContentAlignment="Center" FontSize="16" Tag="23" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
         </Grid>
 
         <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2">

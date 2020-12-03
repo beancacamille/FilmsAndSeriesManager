@@ -14,7 +14,6 @@ namespace FilmsAndSeriesManagerBusiness
         public List<Show> PlanToWatch { get; set; }
         public List<Show> Finished { get; set; }
         public List<Show> Dropped { get; set; }
-        public List<Genre> GenreList { get; set; }
         public Show SelectedShow { get; set; }
         public bool IsSeries { get; set; }
         public bool IsShowEdit { get; set; }
@@ -137,12 +136,20 @@ namespace FilmsAndSeriesManagerBusiness
 
         public void SortByScore()
         {
-            ShowList = ShowList.OrderByDescending(s => s.Score).ToList();
+            ShowList = ShowList.OrderByDescending(s => s.Score).ThenBy(s => s.Title).ToList();
         }
 
         public void SearchByTitle(string keyword)
         {
             ShowList = ShowList.Where(s => s.Title.ToLower().Contains(keyword.ToLower().Trim())).ToList();
+        }
+
+        public void FilterByGenre()
+        {
+            GenreFilter.ForEach(x =>
+            {
+                ShowList = ShowList.Where(s => s.GetAllGenreInt().Contains(x)).ToList();
+            });
         }
     }
 }
