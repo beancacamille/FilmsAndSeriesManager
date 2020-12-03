@@ -68,6 +68,7 @@ namespace FilmsAndSeriesManagerWPF
             }
             LblScoreValue.Content = mainWindowMethods.SelectedShow.Score;
             LblStatusValue.Content = mainWindowMethods.SelectedShow.StatusNavigation.Name;
+            LblGenreValue.Content = mainWindowMethods.SelectedShow.GetAllGenreString();
             LblNotesValue.Content = mainWindowMethods.SelectedShow.Notes;
         }
 
@@ -154,28 +155,6 @@ namespace FilmsAndSeriesManagerWPF
             LblEpisodeValue.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
         }
-
-        //private void AutomaticallySelectItemOnList()
-        //{
-        //    int showStatus = mainWindowMethods.SelectedShow.Status;
-
-        //    if (showStatus == 0)
-        //    {
-        //        ListWatching.SelectedIndex = mainWindowMethods.Watching.IndexOf(mainWindowMethods.SelectedShow);
-        //    }
-        //    else if (showStatus == 1)
-        //    {
-        //        ListPlanToWatch.SelectedIndex = mainWindowMethods.PlanToWatch.IndexOf(mainWindowMethods.SelectedShow);
-        //    }
-        //    else if (showStatus == 2)
-        //    {
-        //        ListFinished.SelectedIndex = mainWindowMethods.Finished.IndexOf(mainWindowMethods.SelectedShow);
-        //    }
-        //    else
-        //    {
-        //        ListDropped.SelectedIndex = mainWindowMethods.Dropped.IndexOf(mainWindowMethods.SelectedShow);
-        //    }
-        //}
 
         private void OpenFilmWindow()
         {

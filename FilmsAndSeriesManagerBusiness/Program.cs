@@ -9,13 +9,9 @@ namespace FilmsAndSeriesManagerBusiness
         {
             Methods methods = new Methods();
 
-            //methods.AddFilm("Just test", "", 0, 0);
+            //methods.AddFilm("Just test", "",1 , 0, 2, "");
             //Console.WriteLine("Film added");
             //var selectedShow = methods.GetShowByTitle("Just test");
-            //selectedShow.AddGenre(0);
-            //selectedShow.AddGenre(1);
-            //selectedShow.AddGenre(2);
-            //selectedShow.AddGenre(3);
             //selectedShow.AddGenres(new List<int> { 0, 1, 2, 3 });
             //Console.WriteLine("Genres added");
 

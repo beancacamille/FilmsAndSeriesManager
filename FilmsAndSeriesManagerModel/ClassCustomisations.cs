@@ -23,6 +23,13 @@ namespace FilmsAndSeriesManagerModel
             }
         }
 
+        public string GetAllGenreString()
+        {
+            var genreListString = new StringBuilder();
+            GetAllGenre().ForEach(x => genreListString.Append(x.Name + ", "));
+            return genreListString.Length > 0 ? genreListString.ToString().Substring(0, genreListString.Length - 2) : "";
+        }
+
         public void AddGenres(List<int> genreList)
         {
             using (var db = new FilmsAndSeriesManagerContext())

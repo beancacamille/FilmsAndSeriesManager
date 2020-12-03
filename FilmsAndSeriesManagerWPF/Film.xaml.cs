@@ -20,11 +20,14 @@ namespace FilmsAndSeriesManagerWPF
     public partial class Film : Window
     {
         Methods filmMethods;
+        List<int> genreList;
 
         public Film(Methods methods)
         {
             InitializeComponent();
             filmMethods = methods;
+            genreList = new List<int>();
+
             ComboStatus.ItemsSource = methods.RetrieveAllShowStatus();
             if (!filmMethods.IsSeries)
             {
@@ -39,6 +42,16 @@ namespace FilmsAndSeriesManagerWPF
         private void SliderScore_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             LblScoreValue.Content = (int)SliderScore.Value;
+        }
+
+        private void Check_Checked(object sender, RoutedEventArgs e)
+        {
+            genreList.Add(int.Parse((sender as CheckBox).Tag.ToString()));
+        }
+
+        private void Check_Unchecked(object sender, RoutedEventArgs e)
+        {
+            genreList.Remove(int.Parse((sender as CheckBox).Tag.ToString()));
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -65,6 +78,9 @@ namespace FilmsAndSeriesManagerWPF
                 {
                     filmMethods.AddFilm(title, url, score, 0, status, notes);
                 }
+                var selectedShow = filmMethods.GetShowByTitle(title);
+                genreList.Sort();
+                selectedShow.AddGenres(genreList);
             }
             CloseWindow();
         }
