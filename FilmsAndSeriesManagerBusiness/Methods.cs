@@ -18,8 +18,7 @@ namespace FilmsAndSeriesManagerBusiness
         public Show SelectedShow { get; set; }
         public bool IsSeries { get; set; }
         public bool IsShowEdit { get; set; }
-        public string ListCategory { get; set; }
-        public int ListIndex { get; set; }
+        public List<int> GenreFilter { get; set; }
 
         public void RetrieveAllShows()
         {
@@ -139,6 +138,11 @@ namespace FilmsAndSeriesManagerBusiness
         public void SortByScore()
         {
             ShowList = ShowList.OrderByDescending(s => s.Score).ToList();
+        }
+
+        public void SearchByTitle(string keyword)
+        {
+            ShowList = ShowList.Where(s => s.Title.ToLower().Contains(keyword.ToLower().Trim())).ToList();
         }
     }
 }

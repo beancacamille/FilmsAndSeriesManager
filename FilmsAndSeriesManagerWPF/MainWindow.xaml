@@ -51,6 +51,8 @@
             <Label x:Name="LblSort" Content="Sort" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
             <RadioButton x:Name="RadioTitle" Content="by Title" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="18" GroupName="SortBy" VerticalContentAlignment="Center" Checked="Radio_Checked"/>
             <RadioButton x:Name="RadioScore" Content="by Score" Grid.Row="3" FontSize="18" GroupName="SortBy" VerticalContentAlignment="Center" Grid.Column="1" Checked="Radio_Checked"/>
+            <Label x:Name="LblSearch" Content="Search" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="TxtSearch" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" TextChanged="TxtSearch_TextChanged"/>
         </Grid>
 
         <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2">

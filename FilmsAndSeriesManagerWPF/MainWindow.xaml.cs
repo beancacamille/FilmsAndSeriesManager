@@ -83,17 +83,17 @@ namespace FilmsAndSeriesManagerWPF
             OpenFilmWindow();
         }
 
+        private void TxtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            mainWindowMethods.RetrieveAllShows();
+            mainWindowMethods.SearchByTitle(TxtSearch.Text);
+            SortList();
+            UpdateLists();
+        }
+
         private void Radio_Checked(object sender, RoutedEventArgs e)
         {
-            var radioName = (sender as RadioButton).Name;
-            if (radioName == "RadioTitle")
-            {
-                mainWindowMethods.SortByTitle();
-            }
-            else
-            {
-                mainWindowMethods.SortByScore();
-            }
+            SortList();
             UpdateLists();
         }
 
@@ -116,6 +116,17 @@ namespace FilmsAndSeriesManagerWPF
         {
             mainWindowMethods.DeleteShow();
             mainWindowMethods.RetrieveAllShows();
+            SortList();
+            UpdateLists();
+            
+            if (ListWatching.Items.Count > 0)
+            {
+                ListWatching.SelectedIndex = 0;
+            }
+        }
+
+        private void SortList()
+        {
             if (RadioTitle.IsChecked == true)
             {
                 mainWindowMethods.SortByTitle();
@@ -124,8 +135,6 @@ namespace FilmsAndSeriesManagerWPF
             {
                 mainWindowMethods.SortByScore();
             }
-            UpdateLists();
-            ListWatching.SelectedIndex = 0;
         }
 
         private void ShowSeriesDetails()
