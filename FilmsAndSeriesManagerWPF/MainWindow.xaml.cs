@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FilmsAndSeriesManagerBusiness;
+using FilmsAndSeriesManagerModel;
 
 namespace FilmsAndSeriesManagerWPF
 {
@@ -40,6 +41,16 @@ namespace FilmsAndSeriesManagerWPF
             ListDropped.ItemsSource = methods.Dropped;
         }
 
+        public void DisplayShowDetails()
+        {
+            LblTitleValue.Content = methods.SelectedShow.Title;
+            LblUrlValue.Content = methods.SelectedShow.Url;
+            LblTypeValue.Content = (methods.SelectedShow.Type == 0) ? "Film" : "Series";
+            LblScoreValue.Content = methods.SelectedShow.Score;
+            LblStatusValue.Content = methods.SelectedShow.Status;
+            LblNotesValue.Content = methods.SelectedShow.Notes;
+        }
+
         private void BtnAddFilm_Click(object sender, RoutedEventArgs e)
         {
             Hide();
@@ -59,6 +70,12 @@ namespace FilmsAndSeriesManagerWPF
                 methods.SortByScore();
             }
             UpdateLists();
+        }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            methods.SelectedShow = (Show)(sender as ListBox).SelectedItem;
+            DisplayShowDetails();
         }
     }
 }

@@ -76,14 +76,69 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ListBox x:Name="ListWatching" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" Grid.Row="1"/>
+            <ListBox x:Name="ListWatching" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" Grid.Row="1" SelectionChanged="List_SelectionChanged"/>
             <Label x:Name="LblWatching" Content="Watching" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="24" VerticalContentAlignment="Bottom"/>
-            <ListBox x:Name="ListPlanToWatch" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
+            <ListBox x:Name="ListPlanToWatch" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
             <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Row="4" FontSize="24" VerticalContentAlignment="Bottom"/>
-            <ListBox x:Name="ListFinished" Grid.Row="9" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
+            <ListBox x:Name="ListFinished" Grid.Row="9" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
             <Label x:Name="LblFinished" Content="Finished" Grid.Row="8" FontSize="24" VerticalContentAlignment="Bottom"/>
-            <ListBox x:Name="ListDropped" Grid.Row="13" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16"/>
+            <ListBox x:Name="ListDropped" Grid.Row="13" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
             <Label x:Name="LblDropped" Content="Dropped" Grid.Row="12" FontSize="24" VerticalContentAlignment="Bottom"/>
+        </Grid>
+        
+        <Grid Grid.Column="6" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="25"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition Height="5"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="LblTitle" Content="Title" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
+            <Label x:Name="LblTitleValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="1"/>
+            <Label x:Name="LblUrl" Content="Url" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
+            <Label x:Name="LblUrlValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="8" Grid.Row="3"/>
+            <Button x:Name="BtnGo" Content="Go" Grid.Column="9" FontSize="20" Grid.Row="3"/>
+            <Label x:Name="LblType" Content="Type" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="4"/>
+            <Label x:Name="LblTypeValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="5"/>
+            <Label x:Name="LblSeason" Content="Season" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="3"/>
+            <Label x:Name="LblSeasonValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="5" Grid.Column="3"/>
+            <Label x:Name="LblEpisode" Content="Ep" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="6"/>
+            <Label x:Name="LblEpisodeValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="5" Grid.Column="6"/>
+            <Button x:Name="BtnEdit" Content="Edit" Grid.Column="9" FontSize="20" Grid.Row="5"/>
+            <Button x:Name="BtnPlus" Content="+" Grid.Column="7" FontSize="20" Grid.Row="5"/>
+            <Button x:Name="BtnMinus" Content="-" Grid.Column="5" FontSize="20" Grid.Row="5"/>
+            <Label x:Name="LblScore" Content="Score" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="6"/>
+            <Label x:Name="LblScoreValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="7"/>
+            <Label x:Name="LblStatus" Content="Status" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="6" Grid.Column="3"/>
+            <Label x:Name="LblStatusValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="7" Grid.Column="3"/>
+            <Label x:Name="LblNotes" Content="Notes" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="8"/>
+            <Label x:Name="LblNotesValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="9" Grid.RowSpan="4"/>
+            <Button x:Name="BtnFavourite" Content="No" Grid.Column="1" FontSize="20"/>
+            <Button x:Name="BtnEditShow" Content="Edit" Grid.Column="1" FontSize="20" Grid.Row="14" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="150"/>
+            <Button x:Name="BtnDeleteShow" Content="Delete" Grid.Column="5" FontSize="20" Grid.Row="14" HorizontalAlignment="Left" Grid.ColumnSpan="5" Width="150"/>
         </Grid>
     </Grid>
 </Window>
