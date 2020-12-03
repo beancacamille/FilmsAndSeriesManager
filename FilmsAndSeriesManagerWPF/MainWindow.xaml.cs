@@ -22,40 +22,64 @@ namespace FilmsAndSeriesManagerWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        Methods methods = new Methods();
-        Film filmWindow = new Film();
+        Methods mainWindowMethods;
 
         public MainWindow()
         {
             InitializeComponent();
-            methods.RetrieveAllShows();
+            mainWindowMethods = new Methods();
+            mainWindowMethods.RetrieveAllShows();
+            RadioTitle.IsChecked = true;
+            ListWatching.SelectedIndex = 0;
+        }
+
+        public MainWindow(Methods methods)
+        {
+            InitializeComponent();
+            mainWindowMethods = methods;
+            mainWindowMethods.RetrieveAllShows();
             RadioTitle.IsChecked = true;
         }
 
         public void UpdateLists()
         {
-            methods.PopulateShowCategoryLists();
-            ListWatching.ItemsSource = methods.Watching;
-            ListPlanToWatch.ItemsSource = methods.PlanToWatch;
-            ListFinished.ItemsSource = methods.Finished;
-            ListDropped.ItemsSource = methods.Dropped;
+            mainWindowMethods.PopulateShowCategoryLists();
+            ListWatching.ItemsSource = mainWindowMethods.Watching;
+            ListPlanToWatch.ItemsSource = mainWindowMethods.PlanToWatch;
+            ListFinished.ItemsSource = mainWindowMethods.Finished;
+            ListDropped.ItemsSource = mainWindowMethods.Dropped;
         }
 
         public void DisplayShowDetails()
         {
-            LblTitleValue.Content = methods.SelectedShow.Title;
-            LblUrlValue.Content = methods.SelectedShow.Url;
-            LblTypeValue.Content = (methods.SelectedShow.Type == 0) ? "Film" : "Series";
-            LblScoreValue.Content = methods.SelectedShow.Score;
-            LblStatusValue.Content = methods.SelectedShow.Status;
-            LblNotesValue.Content = methods.SelectedShow.Notes;
+            LblTitleValue.Content = mainWindowMethods.SelectedShow.Title;
+            LblUrlValue.Content = mainWindowMethods.SelectedShow.Url;
+            LblTypeValue.Content = (mainWindowMethods.SelectedShow.Type == 0) ? "Film" : "Series";
+            if (mainWindowMethods.SelectedShow.Type == 0)
+            {
+                HideSeriesDetails();
+            }
+            else
+            {
+                ShowSeriesDetails();
+                LblSeasonValue.Content = mainWindowMethods.SelectedShow.Series.Season;
+                LblEpisodeValue.Content = mainWindowMethods.SelectedShow.Series.Episode;
+            }
+            LblScoreValue.Content = mainWindowMethods.SelectedShow.Score;
+            LblStatusValue.Content = mainWindowMethods.SelectedShow.StatusNavigation.Name;
+            LblNotesValue.Content = mainWindowMethods.SelectedShow.Notes;
         }
 
         private void BtnAddFilm_Click(object sender, RoutedEventArgs e)
         {
-            Hide();
-            filmWindow.Show();
-            Close();
+            mainWindowMethods.IsSeries = false;
+            OpenFilmWindow();
+        }
+
+        private void BtnAddSeries_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.IsSeries = true;
+            OpenFilmWindow();
         }
 
         private void Radio_Checked(object sender, RoutedEventArgs e)
@@ -63,19 +87,50 @@ namespace FilmsAndSeriesManagerWPF
             var radioName = (sender as RadioButton).Name;
             if (radioName == "RadioTitle")
             {
-                methods.SortByTitle();
+                mainWindowMethods.SortByTitle();
             }
             else
             {
-                methods.SortByScore();
+                mainWindowMethods.SortByScore();
             }
             UpdateLists();
         }
 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            methods.SelectedShow = (Show)(sender as ListBox).SelectedItem;
+            mainWindowMethods.SelectedShow = (Show)(sender as ListBox).SelectedItem;
             DisplayShowDetails();
+        }
+
+        public void ShowSeriesDetails()
+        {
+            LblSeason.Visibility = Visibility.Visible;
+            LblSeasonValue.Visibility = Visibility.Visible;
+            LblEpisode.Visibility = Visibility.Visible;
+            LblEpisodeValue.Visibility = Visibility.Visible;
+            BtnEdit.Visibility = Visibility.Visible;
+        }
+
+        public void HideSeriesDetails()
+        {
+            LblSeason.Visibility = Visibility.Hidden;
+            LblSeasonValue.Visibility = Visibility.Hidden;
+            LblEpisode.Visibility = Visibility.Hidden;
+            LblEpisodeValue.Visibility = Visibility.Hidden;
+            BtnEdit.Visibility = Visibility.Hidden;
+        }
+
+        public void OpenFilmWindow()
+        {
+            var filmWindow = new Film(mainWindowMethods);
+            Hide();
+            filmWindow.Show();
+            Close();
+        }
+
+        private void BtnEditShow_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.IsShowEdit = true;
         }
     }
 }

@@ -19,12 +19,17 @@ namespace FilmsAndSeriesManagerWPF
     /// </summary>
     public partial class Film : Window
     {
-        Methods methods = new Methods();
+        Methods filmMethods;
 
-        public Film()
+        public Film(Methods methods)
         {
             InitializeComponent();
+            filmMethods = methods;
             ComboStatus.ItemsSource = methods.RetrieveAllShowStatus();
+            if (!filmMethods.IsSeries)
+            {
+                HideSeriesDetails();
+            }
         }
 
         private void SliderScore_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -37,20 +42,40 @@ namespace FilmsAndSeriesManagerWPF
             string title = TxtTitle.Text;
             string url = TxtUrl.Text;
             int score = int.Parse(LblScoreValue.Content.ToString());
-            int type = 0;
             int status = ComboStatus.SelectedIndex;
-            methods.AddFilm(title, url, score, type, status);
+            string notes = TxtNotes.Text;
+
+            if (filmMethods.IsSeries)
+            {
+                int season = int.Parse(TxtSeason.Text);
+                int episode = int.Parse(TxtEpisode.Text);
+                filmMethods.AddSeries(title, url, score, 1, status, season, episode, notes);
+                filmMethods.IsSeries = false;
+            }
+            else
+            {
+                filmMethods.AddFilm(title, url, score, 0, status, notes);
+            }
             CloseWindow();
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
+            filmMethods.IsSeries = false;
             CloseWindow();
+        }
+
+        private void HideSeriesDetails()
+        {
+            LblSeason.Visibility = Visibility.Hidden;
+            TxtSeason.Visibility = Visibility.Hidden;
+            LblEpisode.Visibility = Visibility.Hidden;
+            TxtEpisode.Visibility = Visibility.Hidden;
         }
 
         private void CloseWindow()
         {
-            var mainWindow = new MainWindow();
+            var mainWindow = new MainWindow(filmMethods);
             Hide();
             mainWindow.Show();
             Close();

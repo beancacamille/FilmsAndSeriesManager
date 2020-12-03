@@ -16,12 +16,14 @@ namespace FilmsAndSeriesManagerBusiness
         public List<Show> Dropped { get; set; }
         public List<Genre> GenreList { get; set; }
         public Show SelectedShow { get; set; }
+        public bool IsSeries { get; set; }
+        public bool IsShowEdit { get; set; }
 
         public void RetrieveAllShows()
         {
             using (var db = new FilmsAndSeriesManagerContext())
             {
-                ShowList =  db.Shows.Include(s => s.Series).ToList();
+                ShowList =  db.Shows.Include(s => s.Series).Include(s => s.StatusNavigation).ToList();
             }
         }
 
@@ -57,21 +59,21 @@ namespace FilmsAndSeriesManagerBusiness
             }
         }
 
-        public void AddFilm(string title, string url, int score, int type, int status)
+        public void AddFilm(string title, string url, int score, int type, int status, string notes)
         {
             using (var db = new FilmsAndSeriesManagerContext())
             {
-                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status};
+                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status, Notes = notes };
                 db.Shows.Add(newFilm);
                 db.SaveChanges();
             }
         }
 
-        public void AddSeries(string title, string url, int score, int type, int status, int season, int episode)
+        public void AddSeries(string title, string url, int score, int type, int status, int season, int episode, string notes)
         {
             using (var db = new FilmsAndSeriesManagerContext())
             {
-                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status};
+                var newFilm = new Show { Title = title.Trim(), Url = url.Trim(), Score = score, Type = type, Status = status, Notes = notes };
                 db.Shows.Add(newFilm);
                 db.SaveChanges();
 

@@ -39,41 +39,50 @@
             <RowDefinition/>
             <RowDefinition Height="5"/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="5"/>
+            <RowDefinition/>
             <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
-        <Button x:Name="BtnAdd" Content="Add" Grid.Row="21" FontSize="20" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,60,0" Click="BtnAdd_Click"/>
-        <Label x:Name="LblTitle" Content="Title" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="1"/>
-        <TextBox x:Name="TxtTitle" Grid.ColumnSpan="3" TextWrapping="Wrap" Grid.Column="2" FontSize="20" VerticalContentAlignment="Center" Grid.Row="1"/>
-        <Label x:Name="LblUrl" Content="Url" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="3" Grid.Column="1"/>
-        <TextBox x:Name="TxtUrl" Grid.ColumnSpan="3" TextWrapping="Wrap" FontSize="20" VerticalContentAlignment="Center" Grid.Row="3" Grid.Column="2"/>
-        <Label x:Name="LblStatus" Content="Status" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="19" Grid.Column="1"/>
-        <ComboBox x:Name="ComboStatus" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="19" VerticalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" SelectedIndex="0"/>
-        <Button x:Name="BtnCancel" Content="Cancel" Grid.Row="21" FontSize="20" Grid.Column="3" Click="BtnCancel_Click" Grid.ColumnSpan="2" Margin="60,0,0,0"/>
-        <Label x:Name="LblScore" Content="Score" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="17" Grid.Column="1"/>
-        <Slider x:Name="SliderScore" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="17" VerticalAlignment="Center" SmallChange="1" TickPlacement="BottomRight" ValueChanged="SliderScore_ValueChanged"/>
-        <Label x:Name="LblScoreValue" Content="0" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="17" Grid.Column="5"/>
-        <Label x:Name="LblGenre" Content="Genre" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="5" Grid.Column="1"/>
-        <CheckBox x:Name="CheckAction" Content="Action" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckAdult" Content="Adult" Grid.Column="3" Grid.Row="5" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckAdventure" Content="Adventure" Grid.Column="4" Grid.Row="5" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckComedy" Content="Comedy" Grid.Column="5" Grid.Row="5" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckDrama" Content="Drama" Grid.Column="2" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckFamily" Content="Family" Grid.Column="3" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckFantasy" Content="Fantasy" Grid.Column="4" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckHistorical" Content="Historical" Grid.Column="5" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckHorror" Content="Horror" Grid.Column="2" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckKids" Content="Kids" Grid.Column="3" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckMartialArts" Content="Martial Arts" Grid.Column="4" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckMature" Content="Mature" Grid.Column="5" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckMusic" Content="Music" Grid.Column="2" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckMystery" Content="Mystery" Grid.Column="3" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckPsychological" Content="Psychological" Grid.Column="4" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckRomance" Content="Romance" Grid.Column="5" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckSchoolLife" Content="School Life" Grid.Column="2" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckSciFi" Content="Sci-Fi" Grid.Column="3" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckSliceOfLife" Content="Slice of Life" Grid.Column="4" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckSports" Content="Sports" Grid.Column="5" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckThriller" Content="Thriller" Grid.Column="2" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16"/>
-        <CheckBox x:Name="CheckTragedy" Content="Tragedy" Grid.Column="3" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16"/>
+        <Button x:Name="BtnAdd" Content="Add" Grid.Row="24" FontSize="18" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Margin="0,0,60,0" Click="BtnAdd_Click"/>
+        <Label x:Name="LblTitle" Content="Title" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="3" Grid.Column="1"/>
+        <TextBox x:Name="TxtTitle" Grid.ColumnSpan="2" TextWrapping="Wrap" Grid.Column="2" FontSize="18" VerticalContentAlignment="Center" Grid.Row="3"/>
+        <Label x:Name="LblUrl" Content="Url" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="5" Grid.Column="1"/>
+        <TextBox x:Name="TxtUrl" Grid.ColumnSpan="4" TextWrapping="Wrap" FontSize="18" VerticalContentAlignment="Center" Grid.Row="5" Grid.Column="2"/>
+        <Label x:Name="LblStatus" Content="Status" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="1"/>
+        <ComboBox x:Name="ComboStatus" Grid.ColumnSpan="2" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="1" VerticalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" SelectedIndex="0"/>
+        <Button x:Name="BtnCancel" Content="Cancel" Grid.Row="24" FontSize="18" Grid.Column="3" Click="BtnCancel_Click" Grid.ColumnSpan="2" Margin="60,0,0,0"/>
+        <Label x:Name="LblScore" Content="Score" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="19" Grid.Column="1"/>
+        <Slider x:Name="SliderScore" Grid.ColumnSpan="3" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="19" VerticalAlignment="Center" SmallChange="1" TickPlacement="BottomRight" ValueChanged="SliderScore_ValueChanged"/>
+        <Label x:Name="LblScoreValue" Content="0" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="19" Grid.Column="5"/>
+        <Label x:Name="LblGenre" Content="Genre" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="7" Grid.Column="1"/>
+        <CheckBox x:Name="CheckAction" Content="Action" Grid.Column="2" HorizontalAlignment="Stretch" Grid.Row="7" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckAdult" Content="Adult" Grid.Column="3" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckAdventure" Content="Adventure" Grid.Column="4" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Margin="-8,0,0,0"/>
+        <CheckBox x:Name="CheckComedy" Content="Comedy" Grid.Column="5" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckDrama" Content="Drama" Grid.Column="2" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckFamily" Content="Family" Grid.Column="3" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckFantasy" Content="Fantasy" Grid.Column="4" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Margin="-8,0,0,0"/>
+        <CheckBox x:Name="CheckHistorical" Content="Historical" Grid.Column="5" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckHorror" Content="Horror" Grid.Column="2" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckKids" Content="Kids" Grid.Column="3" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckMartialArts" Content="Martial Arts" Grid.Column="4" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Margin="-8,0,0,0"/>
+        <CheckBox x:Name="CheckMature" Content="Mature" Grid.Column="5" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckMusic" Content="Music" Grid.Column="2" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckMystery" Content="Mystery" Grid.Column="3" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckPsychological" Content="Psychological" Grid.Column="4" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Margin="-8,0,0,0"/>
+        <CheckBox x:Name="CheckRomance" Content="Romance" Grid.Column="5" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckSchoolLife" Content="School Life" Grid.Column="2" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckSciFi" Content="Sci-Fi" Grid.Column="3" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckSliceOfLife" Content="Slice of Life" Grid.Column="4" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Margin="-8,0,0,0"/>
+        <CheckBox x:Name="CheckSports" Content="Sports" Grid.Column="5" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckThriller" Content="Thriller" Grid.Column="2" Grid.Row="17" VerticalContentAlignment="Center" FontSize="16"/>
+        <CheckBox x:Name="CheckTragedy" Content="Tragedy" Grid.Column="3" Grid.Row="17" VerticalContentAlignment="Center" FontSize="16"/>
+        <Label x:Name="LblNotes" Content="Notes" FontSize="18" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="21" Grid.Column="1"/>
+        <TextBox x:Name="TxtNotes" Grid.ColumnSpan="4" TextWrapping="Wrap" FontSize="18" VerticalContentAlignment="Center" Grid.Row="21" Grid.Column="2" Grid.RowSpan="2"/>
+        <Label x:Name="LblSeason" Content="Season" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="4" Visibility="Visible"/>
+        <TextBox x:Name="TxtSeason" TextWrapping="Wrap" Grid.Column="4" FontSize="18" VerticalContentAlignment="Center" Grid.Row="3" Margin="5,0,0,0" Text="0"/>
+        <Label x:Name="LblEpisode" Content="Episode" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Grid.Row="1" Grid.Column="5"/>
+        <TextBox x:Name="TxtEpisode" TextWrapping="Wrap" Grid.Column="5" FontSize="18" VerticalContentAlignment="Center" Grid.Row="3" Margin="5,0,0,0" Text="0"/>
     </Grid>
 </Window>
