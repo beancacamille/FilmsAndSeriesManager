@@ -42,9 +42,9 @@ namespace FilmsAndSeriesManagerWPF
 
         private void BtnAddFilm_Click(object sender, RoutedEventArgs e)
         {
-            IsEnabled = false;
+            Hide();
             filmWindow.Show();
-            filmWindow.Owner = this;
+            Close();
         }
 
         private void Radio_Checked(object sender, RoutedEventArgs e)

@@ -40,24 +40,20 @@ namespace FilmsAndSeriesManagerWPF
             int type = 0;
             int status = ComboStatus.SelectedIndex;
             methods.AddFilm(title, url, score, type, status);
-            methods.RetrieveAllShows();
-            if (((MainWindow)this.Owner).RadioTitle.IsChecked == true)
-            {
-                methods.SortByTitle();
-            }
-            else
-            {
-                methods.SortByScore();
-            }
-            ((MainWindow)this.Owner).UpdateLists();
-            ((MainWindow)this.Owner).IsEnabled = true;
-            Hide();
+            CloseWindow();
         }
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)this.Owner).IsEnabled = true;
+            CloseWindow();
+        }
+
+        private void CloseWindow()
+        {
+            var mainWindow = new MainWindow();
             Hide();
+            mainWindow.Show();
+            Close();
         }
     }
 }
