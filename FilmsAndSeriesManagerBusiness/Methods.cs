@@ -18,6 +18,8 @@ namespace FilmsAndSeriesManagerBusiness
         public Show SelectedShow { get; set; }
         public bool IsSeries { get; set; }
         public bool IsShowEdit { get; set; }
+        public string ListCategory { get; set; }
+        public int ListIndex { get; set; }
 
         public void RetrieveAllShows()
         {

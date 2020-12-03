@@ -39,9 +39,10 @@ namespace FilmsAndSeriesManagerWPF
             mainWindowMethods = methods;
             mainWindowMethods.RetrieveAllShows();
             RadioTitle.IsChecked = true;
+            //AutomaticallySelectItemOnList();
         }
 
-        public void UpdateLists()
+        private void UpdateLists()
         {
             mainWindowMethods.PopulateShowCategoryLists();
             ListWatching.ItemsSource = mainWindowMethods.Watching;
@@ -50,7 +51,7 @@ namespace FilmsAndSeriesManagerWPF
             ListDropped.ItemsSource = mainWindowMethods.Dropped;
         }
 
-        public void DisplayShowDetails()
+        private void DisplayShowDetails()
         {
             LblTitleValue.Content = mainWindowMethods.SelectedShow.Title;
             LblUrlValue.Content = mainWindowMethods.SelectedShow.Url;
@@ -99,10 +100,35 @@ namespace FilmsAndSeriesManagerWPF
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             mainWindowMethods.SelectedShow = (Show)(sender as ListBox).SelectedItem;
-            DisplayShowDetails();
+            if (mainWindowMethods.SelectedShow != null)
+            {
+                DisplayShowDetails();
+            }
         }
 
-        public void ShowSeriesDetails()
+        private void BtnEditShow_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.IsShowEdit = true;
+            OpenFilmWindow();
+        }
+
+        private void BtnDeleteShow_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.DeleteShow();
+            mainWindowMethods.RetrieveAllShows();
+            if (RadioTitle.IsChecked == true)
+            {
+                mainWindowMethods.SortByTitle();
+            }
+            else
+            {
+                mainWindowMethods.SortByScore();
+            }
+            UpdateLists();
+            ListWatching.SelectedIndex = 0;
+        }
+
+        private void ShowSeriesDetails()
         {
             LblSeason.Visibility = Visibility.Visible;
             LblSeasonValue.Visibility = Visibility.Visible;
@@ -111,7 +137,7 @@ namespace FilmsAndSeriesManagerWPF
             BtnEdit.Visibility = Visibility.Visible;
         }
 
-        public void HideSeriesDetails()
+        private void HideSeriesDetails()
         {
             LblSeason.Visibility = Visibility.Hidden;
             LblSeasonValue.Visibility = Visibility.Hidden;
@@ -120,18 +146,34 @@ namespace FilmsAndSeriesManagerWPF
             BtnEdit.Visibility = Visibility.Hidden;
         }
 
-        public void OpenFilmWindow()
+        //private void AutomaticallySelectItemOnList()
+        //{
+        //    int showStatus = mainWindowMethods.SelectedShow.Status;
+
+        //    if (showStatus == 0)
+        //    {
+        //        ListWatching.SelectedIndex = mainWindowMethods.Watching.IndexOf(mainWindowMethods.SelectedShow);
+        //    }
+        //    else if (showStatus == 1)
+        //    {
+        //        ListPlanToWatch.SelectedIndex = mainWindowMethods.PlanToWatch.IndexOf(mainWindowMethods.SelectedShow);
+        //    }
+        //    else if (showStatus == 2)
+        //    {
+        //        ListFinished.SelectedIndex = mainWindowMethods.Finished.IndexOf(mainWindowMethods.SelectedShow);
+        //    }
+        //    else
+        //    {
+        //        ListDropped.SelectedIndex = mainWindowMethods.Dropped.IndexOf(mainWindowMethods.SelectedShow);
+        //    }
+        //}
+
+        private void OpenFilmWindow()
         {
             var filmWindow = new Film(mainWindowMethods);
             Hide();
             filmWindow.Show();
             Close();
-        }
-
-        private void BtnEditShow_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindowMethods.IsShowEdit = true;
-            OpenFilmWindow();
         }
     }
 }

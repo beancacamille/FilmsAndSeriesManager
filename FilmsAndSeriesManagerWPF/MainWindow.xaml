@@ -142,7 +142,7 @@
             <Label x:Name="LblNotesValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="12" Grid.RowSpan="4"/>
             <Button x:Name="BtnFavourite" Content="No" Grid.Column="1" FontSize="20"/>
             <Button x:Name="BtnEditShow" Content="Edit" Grid.Column="1" FontSize="20" Grid.Row="17" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="150" Click="BtnEditShow_Click"/>
-            <Button x:Name="BtnDeleteShow" Content="Delete" Grid.Column="5" FontSize="20" Grid.Row="17" HorizontalAlignment="Left" Grid.ColumnSpan="5" Width="150"/>
+            <Button x:Name="BtnDeleteShow" Content="Delete" Grid.Column="5" FontSize="20" Grid.Row="17" HorizontalAlignment="Left" Grid.ColumnSpan="5" Width="150" Click="BtnDeleteShow_Click"/>
             <Label x:Name="LblGenre" Content="Genre" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="8"/>
             <Label x:Name="LblGenreValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="9" Grid.RowSpan="2"/>
             <TextBox x:Name="TxtEpisode" TextWrapping="Wrap" Grid.Row="5" Grid.Column="6" FontSize="24" VerticalContentAlignment="Center" Visibility="Hidden"/>
