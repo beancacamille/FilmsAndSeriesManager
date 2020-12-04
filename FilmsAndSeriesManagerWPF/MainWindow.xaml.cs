@@ -40,7 +40,6 @@ namespace FilmsAndSeriesManagerWPF
             mainWindowMethods = methods;
             mainWindowMethods.RetrieveAllShows();
             RadioTitle.IsChecked = true;
-            //AutomaticallySelectItemOnList();
         }
 
         private void UpdateLists()
@@ -126,9 +125,7 @@ namespace FilmsAndSeriesManagerWPF
         private void BtnDeleteShow_Click(object sender, RoutedEventArgs e)
         {
             mainWindowMethods.DeleteShow();
-            mainWindowMethods.RetrieveAllShows();
-            SortList();
-            UpdateLists();
+            SearchFilterSort();
             
             if (ListWatching.Items.Count > 0)
             {

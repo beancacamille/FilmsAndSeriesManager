@@ -109,6 +109,42 @@ namespace FilmsAndSeriesManagerBusiness
             }
         }
 
+        public void UpdateShowGenre(List<int> newGenreList)
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                var genreToAdd = new List<int>();
+                var genreToDelete = new List<int>();
+
+                newGenreList.ForEach(x =>
+                {
+                    if (!SelectedShow.GetAllGenreInt().Contains(x))
+                    {
+                        genreToAdd.Add(x);
+                    }
+                });
+                SelectedShow.GetAllGenreInt().ForEach(x =>
+                {
+                    if (!newGenreList.Contains(x))
+                    {
+                        genreToDelete.Add(x);
+                    }
+                });
+
+                SelectedShow.AddGenres(genreToAdd);
+
+                var showGenres = db.ShowGenres.Where(s => s.ShowId == SelectedShow.Id);
+                foreach (var item in showGenres)
+                {
+                    if (genreToDelete.Contains(item.GenreId))
+                    {
+                        db.ShowGenres.Remove(item);
+                    }
+                }
+                db.SaveChanges();
+            }
+        }
+
         public void DeleteShow()
         {
             using (var db = new FilmsAndSeriesManagerContext())

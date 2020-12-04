@@ -25,17 +25,9 @@ namespace FilmsAndSeriesManagerModel
 
         public List<int> GetAllGenreInt()
         {
-            using (var db = new FilmsAndSeriesManagerContext())
-            {
-                var genreList = new List<int>();
-                var showGenreQuery = db.ShowGenres.Include(s => s.Genre).Where(s => s.ShowId == Id);
-
-                foreach (var item in showGenreQuery)
-                {
-                    genreList.Add(item.Genre.Id);
-                }
-                return genreList;
-            }
+            var genreListInt = new List<int>();
+            GetAllGenre().ForEach(x => genreListInt.Add(x.Id));
+            return genreListInt;
         }
 
         public string GetAllGenreString()

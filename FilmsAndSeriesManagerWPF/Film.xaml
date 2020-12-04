@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FilmsAndSeriesManagerWPF"
         mc:Ignorable="d"
         Title="Film" Height="450" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" BorderThickness="1,1,1,1">
-    <Grid>
+    <Grid x:Name="ShowGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5"/>
             <ColumnDefinition/>

@@ -65,6 +65,7 @@ namespace FilmsAndSeriesManagerWPF
             if (filmMethods.IsShowEdit)
             {
                 filmMethods.UpdateFilm(title, url, score, status, notes);
+                filmMethods.UpdateShowGenre(genreList);
             }
             else
             {
@@ -106,6 +107,20 @@ namespace FilmsAndSeriesManagerWPF
             TxtUrl.Text = filmMethods.SelectedShow.Url;
             SliderScore.Value = (double)filmMethods.SelectedShow.Score;
             TxtNotes.Text = filmMethods.SelectedShow.Notes;
+
+            var elementList = ShowGrid.Children;
+            foreach (var element in elementList)
+            {
+                var elementObject = element as object;
+                if (elementObject is CheckBox)
+                {
+                    var checkBox = elementObject as CheckBox;
+                    if (filmMethods.SelectedShow.GetAllGenreInt().Contains(int.Parse(checkBox.Tag.ToString())))
+                    {
+                        checkBox.IsChecked = true;
+                    }
+                }
+            }
         }
 
         private void CloseWindow()
