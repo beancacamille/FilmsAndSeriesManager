@@ -145,6 +145,17 @@ namespace FilmsAndSeriesManagerBusiness
             }
         }
 
+        public void UpdateSeriesDetails(int season, int episode)
+        {
+            using (var db = new FilmsAndSeriesManagerContext())
+            {
+                var selectedSeries = db.Series.Where(s => s.ShowId == SelectedShow.Id).FirstOrDefault();
+                selectedSeries.Season = season;
+                selectedSeries.Episode = episode;
+                db.SaveChanges();
+            }
+        }
+
         public void DeleteShow()
         {
             using (var db = new FilmsAndSeriesManagerContext())

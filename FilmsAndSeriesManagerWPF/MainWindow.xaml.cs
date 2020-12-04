@@ -53,6 +53,7 @@ namespace FilmsAndSeriesManagerWPF
 
         private void DisplayShowDetails()
         {
+            BtnFavourite.Content = (mainWindowMethods.SelectedShow.Favourite) ? "Yes" : "No";
             LblTitleValue.Content = mainWindowMethods.SelectedShow.Title;
             LblUrlValue.Content = mainWindowMethods.SelectedShow.Url;
             LblTypeValue.Content = (mainWindowMethods.SelectedShow.Type == 0) ? "Film" : "Series";
@@ -62,9 +63,9 @@ namespace FilmsAndSeriesManagerWPF
             }
             else
             {
-                ShowSeriesDetails();
                 LblSeasonValue.Content = mainWindowMethods.SelectedShow.Series.Season;
                 LblEpisodeValue.Content = mainWindowMethods.SelectedShow.Series.Episode;
+                ShowSeriesDetails();
             }
             LblScoreValue.Content = mainWindowMethods.SelectedShow.Score;
             LblStatusValue.Content = mainWindowMethods.SelectedShow.StatusNavigation.Name;
@@ -113,6 +114,48 @@ namespace FilmsAndSeriesManagerWPF
             if (mainWindowMethods.SelectedShow != null)
             {
                 DisplayShowDetails();
+                HideEditSeriesElements();
+            }
+        }
+
+        private void BtnFavourite_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindowMethods.UpdateFavourite();
+            SearchFilterSort();
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            var btnContent = (sender as Button).Content.ToString();
+            if (btnContent == "Edit")
+            {
+                ShowEditSeriesElements();
+                TxtSeason.Text = mainWindowMethods.SelectedShow.Series.Season.ToString();
+                TxtEpisode.Text = mainWindowMethods.SelectedShow.Series.Episode.ToString();
+            }
+            else
+            {
+                int season = int.Parse(TxtSeason.Text);
+                int episode = int.Parse(TxtEpisode.Text);
+                mainWindowMethods.UpdateSeriesDetails(season, episode);
+                HideEditSeriesElements();
+                SearchFilterSort();
+            }
+        }
+
+        private void BtnPlusMinus_Click(object sender, RoutedEventArgs e)
+        {
+            var btnContent = (sender as Button).Content.ToString();
+            if (btnContent == "+")
+            {
+                TxtEpisode.Text = (int.Parse(TxtEpisode.Text.Trim()) + 1).ToString();
+            }
+            else
+            {
+                if (TxtEpisode.Text != "0")
+                {
+                    TxtEpisode.Text = (int.Parse(TxtEpisode.Text.Trim()) - 1).ToString();
+                }
             }
         }
 
@@ -156,10 +199,19 @@ namespace FilmsAndSeriesManagerWPF
 
         private void ShowSeriesDetails()
         {
-            LblSeason.Visibility = Visibility.Visible;
-            LblSeasonValue.Visibility = Visibility.Visible;
+            if (LblSeasonValue.Content.ToString() == "0")
+            {
+                LblSeason.Visibility = Visibility.Hidden;
+                LblSeasonValue.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                LblSeason.Visibility = Visibility.Visible;
+                LblSeasonValue.Visibility = Visibility.Visible;
+            }
             LblEpisode.Visibility = Visibility.Visible;
             LblEpisodeValue.Visibility = Visibility.Visible;
+            BtnEdit.Content = "Edit";
             BtnEdit.Visibility = Visibility.Visible;
         }
 
@@ -170,6 +222,26 @@ namespace FilmsAndSeriesManagerWPF
             LblEpisode.Visibility = Visibility.Hidden;
             LblEpisodeValue.Visibility = Visibility.Hidden;
             BtnEdit.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowEditSeriesElements()
+        {
+            LblSeasonValue.Visibility = Visibility.Hidden;
+            LblEpisodeValue.Visibility = Visibility.Hidden;
+            TxtSeason.Visibility = Visibility.Visible;
+            TxtEpisode.Visibility = Visibility.Visible;
+            BtnMinus.Visibility = Visibility.Visible;
+            BtnPlus.Visibility = Visibility.Visible;
+            BtnEdit.Content = "Save";
+        }
+
+        private void HideEditSeriesElements()
+        {
+            TxtSeason.Visibility = Visibility.Hidden;
+            TxtEpisode.Visibility = Visibility.Hidden;
+            BtnMinus.Visibility = Visibility.Hidden;
+            BtnPlus.Visibility = Visibility.Hidden;
+            ShowSeriesDetails();
         }
 
         private void OpenFilmWindow()

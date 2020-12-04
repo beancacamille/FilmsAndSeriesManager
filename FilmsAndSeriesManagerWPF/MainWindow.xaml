@@ -159,16 +159,16 @@
             <TextBox x:Name="TxtSeason" TextWrapping="Wrap" Grid.Row="5" Grid.Column="3" FontSize="24" VerticalContentAlignment="Center" Visibility="Hidden"/>
             <Label x:Name="LblEpisode" Content="Episode" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="6" Visibility="Hidden" Grid.ColumnSpan="2"/>
             <Label x:Name="LblEpisodeValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="5" Grid.Column="6" Visibility="Hidden"/>
-            <Button x:Name="BtnEdit" Content="Edit" Grid.Column="9" FontSize="20" Grid.Row="5" Visibility="Hidden"/>
-            <Button x:Name="BtnPlus" Content="+" Grid.Column="7" FontSize="20" Grid.Row="5" Visibility="Hidden"/>
-            <Button x:Name="BtnMinus" Content="-" Grid.Column="5" FontSize="20" Grid.Row="5" Visibility="Hidden"/>
+            <Button x:Name="BtnEdit" Content="Edit" Grid.Column="9" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnEdit_Click"/>
+            <Button x:Name="BtnPlus" Content="+" Grid.Column="7" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnPlusMinus_Click"/>
+            <Button x:Name="BtnMinus" Content="-" Grid.Column="5" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnPlusMinus_Click"/>
             <Label x:Name="LblScore" Content="Score" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="6"/>
             <Label x:Name="LblScoreValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="7"/>
             <Label x:Name="LblStatus" Content="Status" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="6" Grid.Column="3"/>
             <Label x:Name="LblStatusValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="7" Grid.Column="3"/>
             <Label x:Name="LblNotes" Content="Notes" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="11"/>
             <Label x:Name="LblNotesValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="12" Grid.RowSpan="4"/>
-            <Button x:Name="BtnFavourite" Content="No" Grid.Column="1" FontSize="20"/>
+            <Button x:Name="BtnFavourite" Content="No" Grid.Column="1" FontSize="20" Click="BtnFavourite_Click"/>
             <Button x:Name="BtnEditShow" Content="Edit" Grid.Column="1" FontSize="20" Grid.Row="17" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="150" Click="BtnEditShow_Click"/>
             <Button x:Name="BtnDeleteShow" Content="Delete" Grid.Column="5" FontSize="20" Grid.Row="17" HorizontalAlignment="Left" Grid.ColumnSpan="5" Width="150" Click="BtnDeleteShow_Click"/>
             <Label x:Name="LblGenre" Content="Genre" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="8"/>
