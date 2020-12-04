@@ -88,30 +88,38 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
+                <RowDefinition Height="25"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition Height="25"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition Height="25"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition Height="25"/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ListBox x:Name="ListWatching" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" Grid.Row="1" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblWatching" Content="Watching" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="24" VerticalContentAlignment="Bottom"/>
-            <ListBox x:Name="ListPlanToWatch" Grid.Row="5" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Row="4" FontSize="24" VerticalContentAlignment="Bottom"/>
-            <ListBox x:Name="ListFinished" Grid.Row="9" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblFinished" Content="Finished" Grid.Row="8" FontSize="24" VerticalContentAlignment="Bottom"/>
-            <ListBox x:Name="ListDropped" Grid.Row="13" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblDropped" Content="Dropped" Grid.Row="12" FontSize="24" VerticalContentAlignment="Bottom"/>
+            <ListBox x:Name="ListWatching" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" Grid.Row="2" SelectionChanged="List_SelectionChanged"/>
+            <Label x:Name="LblWatching" Content="Watching" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <ListBox x:Name="ListPlanToWatch" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
+            <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Row="5" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <ListBox x:Name="ListFinished" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
+            <Label x:Name="LblFinished" Content="Finished" Grid.Row="10" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <ListBox x:Name="ListDropped" Grid.Row="17" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
+            <Label x:Name="LblDropped" Content="Dropped" Grid.Row="15" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label x:Name="LblHeader1" Content="Score           Type            Title" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1"/>
+            <Label x:Name="LblHeader2" Content="Score           Type            Title" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="6"/>
+            <Label x:Name="LblHeader3" Content="Score           Type            Title" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="11"/>
+            <Label x:Name="LblHeader4" Content="Score           Type            Title" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="16"/>
         </Grid>
 
         <Grid Grid.Column="6" Grid.Row="1">
