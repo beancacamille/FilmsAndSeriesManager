@@ -151,7 +151,7 @@
             <Label x:Name="LblTitleValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="1"/>
             <Label x:Name="LblUrl" Content="Url" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
             <Label x:Name="LblUrlValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="8" Grid.Row="3"/>
-            <Button x:Name="BtnGo" Content="Go" Grid.Column="9" FontSize="20" Grid.Row="3"/>
+            <Button x:Name="BtnGo" Content="Go" Grid.Column="9" FontSize="20" Grid.Row="3" Click="BtnGo_Click"/>
             <Label x:Name="LblType" Content="Type" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="4"/>
             <Label x:Name="LblTypeValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="5"/>
             <Label x:Name="LblSeason" Content="Season" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="3" Visibility="Hidden"/>

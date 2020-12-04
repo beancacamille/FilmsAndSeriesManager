@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using FilmsAndSeriesManagerBusiness;
 using FilmsAndSeriesManagerModel;
+using System.Diagnostics;
 
 namespace FilmsAndSeriesManagerWPF
 {
@@ -56,6 +57,14 @@ namespace FilmsAndSeriesManagerWPF
             BtnFavourite.Content = (mainWindowMethods.SelectedShow.Favourite) ? "Yes" : "No";
             LblTitleValue.Content = mainWindowMethods.SelectedShow.Title;
             LblUrlValue.Content = mainWindowMethods.SelectedShow.Url;
+            if (LblUrlValue.Content.ToString() == "")
+            {
+                BtnGo.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                BtnGo.Visibility = Visibility.Visible;
+            }
             LblTypeValue.Content = (mainWindowMethods.SelectedShow.Type == 0) ? "Film" : "Series";
             if (mainWindowMethods.SelectedShow.Type == 0)
             {
@@ -122,6 +131,14 @@ namespace FilmsAndSeriesManagerWPF
         {
             mainWindowMethods.UpdateFavourite();
             SearchFilterSort();
+        }
+
+        private void BtnGo_Click(object sender, RoutedEventArgs e)
+        {
+            Process myProcess = new Process();
+            myProcess.StartInfo.UseShellExecute = true;
+            myProcess.StartInfo.FileName = mainWindowMethods.SelectedShow.Url;
+            myProcess.Start();
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
