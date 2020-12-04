@@ -14,12 +14,12 @@ Films and Series Manager is an application that helps a user keep track of the s
 ### Sprint 1 - Tuesday 1st December 2020
 I aimed to have a three level application with some CREATE operations on the business layer.
 #### Sprint Goals
-- [x] Complete user story 1.1
-- [x] Complete user story 1.2
-- [x] Complete user story 1.3
-- [x] Complete user story 2.1
-- [x] Complete user story 2.2
-- [x] Complete user story 2.3
+- [x] Complete user story 1.1 - Build a database
+- [x] Complete user story 1.2 - Add an interface layer
+- [x] Complete user story 1.3 - Add a business layer
+- [x] Complete user story 2.1 - Add a film
+- [x] Complete user story 2.2 - Add a series
+- [x] Complete user story 2.3 - Assign genre to a show
 - [x] Complete Agile documentation
 - [x] Complete Agile review
 - [x] Complete Agile retrospective
@@ -35,14 +35,14 @@ On the other hand, I am getting more familiar with staging, committing, and push
 ### Sprint 2 - Wednesday 2nd December 2020
 I aimed to have most of the CRUD operations completed with unit testing and referenced in the user interface.
 #### Sprint Goals
-- [x] Complete user story 3.1
-- [x] Complete user story 3.2
-- [x] Complete user story 4.1
-- [x] Complete user story 4.2
-- [x] Complete user story 4.3
-- [x] Complete user story 4.4
-- [x] Complete user story 2.1.1
-- [x] Complete user story 3.1.1
+- [x] Complete user story 3.1 - Category lists
+- [x] Complete user story 3.2 - Sort list
+- [x] Complete user story 4.1 - Add show to favourites
+- [x] Complete user story 4.2 - Edit show status
+- [x] Complete user story 4.3 - Edit show details
+- [x] Complete user story 4.4 - Delete show
+- [x] Complete user story 2.1.1 - Add film interface
+- [x] Complete user story 3.1.1 - Category lists interface
 - [x] Complete Agile documentation
 - [x] Complete Agile review
 - [x] Complete Agile retrospective
@@ -56,12 +56,19 @@ I planned to time-box each user story for 30 minutes each but some of the user s
 ### Sprint 3 - Thursday 3rd December 2020
 I aimed to have all the basic interfaces and all the functionalities of my project completed by the end of this sprint.
 #### Sprint Goals
-- [ ] Complete user story 2.2.1
-- [ ] Complete user story 4.3.1
-- [ ] Complete user story 5.1
-- [ ] Complete user story 5.2
-- [ ] Complete Agile documentation
-- [ ] Complete Agile review
-- [ ] Complete Agile retrospective
-- [ ] Update readme file
-- [ ] Commit all changes from local repository
+- [x] Complete user story 2.2.1 - Add series interface
+- [x] Complete user story 4.3.1 - Edit show interface
+- [x] Complete user story 5.1 - Search by title
+- [x] Complete user story 5.2 - Filter by genre
+- [x] Complete Agile documentation
+- [x] Complete Agile review
+- [x] Complete Agile retrospective
+- [x] Update readme file
+- [x] Commit all changes from local repository
+#### Sprint Review
+I managed to complete all the planned user stories and I have completed all the functionalities of my project. I learned about passing data between different WPF windows when I was working on the Edit Show functionality. I also learned to use Tags to store additional information about a WPF element.
+#### Sprint Retrospective
+I spent a lot of time thinking of how to link the sort, search, and filter functionalities together but I managed to find a way  by repeatedly querying the same list for the search keyword and different genre, then sorting it.
+With all the functionalities done, I can then focus on doing more unit tests and making the application presentable on the next sprint.
+![Sprint 1 Start](Images/Sprint3_Sprint4.PNG)
+### Sprint 4 - Friday 4th December 2020
