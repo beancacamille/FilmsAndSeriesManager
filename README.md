@@ -72,3 +72,17 @@ I spent a lot of time thinking of how to link the sort, search, and filter funct
 With all the functionalities done, I can then focus on doing more unit tests and making the application presentable on the next sprint.
 ![Sprint 1 Start](Images/Sprint3_Sprint4.PNG)
 ### Sprint 4 - Friday 4th December 2020
+I aimed to write more unit tests and start editing the application interface design.
+- [x] Complete user story 4.3 - Edit series season and episode
+- [ ] Complete user story 6.1 - Good user interface
+- [ ] Complete user story 6.2 - More unit testing
+- [x] Complete Agile documentation
+- [x] Complete Agile review
+- [x] Complete Agile retrospective
+- [x] Update readme file
+- [x] Commit all changes from local repository
+#### Sprint Review
+I realised I forgot to add the method for editing series season and episode so I added and completed it. I also added an extra feature for opening up a browser with a specified url using Visual Studio. The rest of the time was spent doing more unit tests and editing the interface design which will be continued on to the next sprint.
+#### Sprint Retrospective
+I am almost done with my project and I am very satisfied with my progress. I decided to choose an Anime theme for the design of my application.
+![Sprint 1 Start](Images/Sprint4_Sprint5.PNG)

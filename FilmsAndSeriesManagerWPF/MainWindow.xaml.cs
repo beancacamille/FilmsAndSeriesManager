@@ -123,7 +123,6 @@ namespace FilmsAndSeriesManagerWPF
             if (mainWindowMethods.SelectedShow != null)
             {
                 DisplayShowDetails();
-                HideEditSeriesElements();
             }
         }
 
@@ -155,7 +154,7 @@ namespace FilmsAndSeriesManagerWPF
                 int season = int.Parse(TxtSeason.Text);
                 int episode = int.Parse(TxtEpisode.Text);
                 mainWindowMethods.UpdateSeriesDetails(season, episode);
-                HideEditSeriesElements();
+                ShowSeriesDetails();
                 SearchFilterSort();
             }
         }
@@ -230,6 +229,11 @@ namespace FilmsAndSeriesManagerWPF
             LblEpisodeValue.Visibility = Visibility.Visible;
             BtnEdit.Content = "Edit";
             BtnEdit.Visibility = Visibility.Visible;
+
+            TxtSeason.Visibility = Visibility.Hidden;
+            TxtEpisode.Visibility = Visibility.Hidden;
+            BtnMinus.Visibility = Visibility.Hidden;
+            BtnPlus.Visibility = Visibility.Hidden;
         }
 
         private void HideSeriesDetails()
@@ -243,6 +247,7 @@ namespace FilmsAndSeriesManagerWPF
 
         private void ShowEditSeriesElements()
         {
+            LblSeason.Visibility = Visibility.Visible;
             LblSeasonValue.Visibility = Visibility.Hidden;
             LblEpisodeValue.Visibility = Visibility.Hidden;
             TxtSeason.Visibility = Visibility.Visible;
@@ -250,15 +255,6 @@ namespace FilmsAndSeriesManagerWPF
             BtnMinus.Visibility = Visibility.Visible;
             BtnPlus.Visibility = Visibility.Visible;
             BtnEdit.Content = "Save";
-        }
-
-        private void HideEditSeriesElements()
-        {
-            TxtSeason.Visibility = Visibility.Hidden;
-            TxtEpisode.Visibility = Visibility.Hidden;
-            BtnMinus.Visibility = Visibility.Hidden;
-            BtnPlus.Visibility = Visibility.Hidden;
-            ShowSeriesDetails();
         }
 
         private void OpenFilmWindow()
