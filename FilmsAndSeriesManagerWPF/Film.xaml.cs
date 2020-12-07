@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using FilmsAndSeriesManagerBusiness;
 using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace FilmsAndSeriesManagerWPF
 {
@@ -37,58 +38,6 @@ namespace FilmsAndSeriesManagerWPF
             {
                 EditMode();
             }
-        }
-
-        private void SliderScore_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            LblScoreValue.Content = (int)SliderScore.Value;
-        }
-
-        private void Check_Checked(object sender, RoutedEventArgs e)
-        {
-            genreList.Add(int.Parse((sender as CheckBox).Tag.ToString()));
-        }
-
-        private void Check_Unchecked(object sender, RoutedEventArgs e)
-        {
-            genreList.Remove(int.Parse((sender as CheckBox).Tag.ToString()));
-        }
-
-        private void BtnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            string title = TxtTitle.Text;
-            string url = TxtUrl.Text;
-            int score = int.Parse(LblScoreValue.Content.ToString());
-            int status = ComboStatus.SelectedIndex;
-            string notes = TxtNotes.Text;
-
-            if (filmMethods.IsShowEdit)
-            {
-                filmMethods.UpdateFilm(title, url, score, status, notes);
-                filmMethods.UpdateShowGenre(genreList);
-            }
-            else
-            {
-                if (filmMethods.IsSeries)
-                {
-                    int season = int.Parse(TxtSeason.Text);
-                    int episode = int.Parse(TxtEpisode.Text);
-                    filmMethods.AddSeries(title, url, score, 1, status, season, episode, notes);
-                }
-                else
-                {
-                    filmMethods.AddFilm(title, url, score, 0, status, notes);
-                }
-                var selectedShow = filmMethods.GetShowByTitle(title);
-                genreList.Sort();
-                selectedShow.AddGenres(genreList);
-            }
-            CloseWindow();
-        }
-
-        private void BtnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            CloseWindow();
         }
 
         private void HideSeriesDetails()
@@ -121,6 +70,81 @@ namespace FilmsAndSeriesManagerWPF
                     }
                 }
             }
+        }
+
+        private void ShowErrorMessage(string message)
+        {
+            LblError.Visibility = Visibility.Visible;
+            LblErrorValue.Visibility = Visibility.Visible;
+            LblErrorValue.Content = message;
+        }
+
+        private void SliderScore_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            LblScoreValue.Content = (int)SliderScore.Value;
+        }
+
+        private void Check_Checked(object sender, RoutedEventArgs e)
+        {
+            genreList.Add(int.Parse((sender as CheckBox).Tag.ToString()));
+        }
+
+        private void Check_Unchecked(object sender, RoutedEventArgs e)
+        {
+            genreList.Remove(int.Parse((sender as CheckBox).Tag.ToString()));
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            string title = TxtTitle.Text.Trim();
+            string url = TxtUrl.Text.Trim();
+            int score = int.Parse(LblScoreValue.Content.ToString());
+            int status = ComboStatus.SelectedIndex;
+            string notes = TxtNotes.Text.Trim();
+            string season = TxtSeason.Text.Trim();
+            string episode = TxtEpisode.Text.Trim();
+
+            //validations
+            if (title == "")
+            {
+                ShowErrorMessage("Title is required");
+            }
+            else if (season == "" || Regex.IsMatch(season, @"[^0-9]+"))
+            {
+                ShowErrorMessage("Invalid season input");
+            }
+            else if (episode == "" || Regex.IsMatch(episode, @"[^0-9]+"))
+            {
+                ShowErrorMessage("Invalid episode input");
+            }
+            else
+            {
+                if (filmMethods.IsShowEdit)
+                {
+                    filmMethods.UpdateFilm(title, url, score, status, notes);
+                    filmMethods.UpdateShowGenre(genreList);
+                }
+                else
+                {
+                    if (filmMethods.IsSeries)
+                    {
+                        filmMethods.AddSeries(title, url, score, 1, status, int.Parse(season), int.Parse(episode), notes);
+                    }
+                    else
+                    {
+                        filmMethods.AddFilm(title, url, score, 0, status, notes);
+                    }
+                    var selectedShow = filmMethods.GetShowByTitle(title);
+                    genreList.Sort();
+                    selectedShow.AddGenres(genreList);
+                }
+                CloseWindow();
+            }
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            CloseWindow();
         }
 
         private void CloseWindow()

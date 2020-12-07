@@ -7,8 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Background.png" />
+    <None Remove="Ichigo.png" />
+    <None Remove="Show_Background.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FilmsAndSeriesManagerBusiness\FilmsAndSeriesManagerBusiness.csproj" />
     <ProjectReference Include="..\FilmsAndSeriesManagerModel\FilmsAndSeriesManagerModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\Background.png" />
+    <Resource Include="Images\Ichigo.png" />
+    <Resource Include="Images\Show_Background.png" />
   </ItemGroup>
 
 </Project>

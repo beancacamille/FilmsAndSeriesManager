@@ -198,5 +198,10 @@ namespace FilmsAndSeriesManagerBusiness
                 ShowList = ShowList.Where(s => s.GetAllGenreInt().Contains(x)).ToList();
             });
         }
+
+        public void FilterFavourites(bool showFavourites)
+        {
+            if (showFavourites) ShowList = ShowList.Where(s => s.Favourite).ToList();
+        }
     }
 }

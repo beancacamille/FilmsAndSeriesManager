@@ -5,27 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FilmsAndSeriesManagerWPF"
         mc:Ignorable="d"
-        Title="Films and Series Manager" Height="800" Width="1400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Films and Series Manager" Height="900" Width="1430" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Images/Background.png" Stretch="Fill" AlignmentX="Left" AlignmentY="Top"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="10"/>
             <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition/>
-            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="10"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="195"/>
             <RowDefinition/>
-            <RowDefinition Height="5"/>
+            <RowDefinition Height="10"/>
         </Grid.RowDefinitions>
-        <Button x:Name="BtnAddFilm" Content="Add Film" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="20" Click="BtnAddFilm_Click"/>
-        <Button x:Name="BtnAddSeries" Content="Add Series" Grid.Column="4" FontSize="20" Click="BtnAddSeries_Click"/>
+        <Button x:Name="BtnAddFilm" Content="Add Film" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" FontSize="20" Click="BtnAddFilm_Click" Height="39" Margin="0,0,0,-39"/>
+        <Button x:Name="BtnAddSeries" Content="Add Series" Grid.Column="4" FontSize="20" Click="BtnAddSeries_Click" Height="39" VerticalAlignment="Bottom" Margin="0,0,0,-39"/>
 
-        <Grid Grid.Column="1" Grid.Row="1">
+        <Grid x:Name="FilterGrid" Grid.Column="1" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -48,40 +51,44 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label x:Name="LblSort" Content="Sort" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
-            <RadioButton x:Name="RadioTitle" Content="by Title" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" FontSize="16" GroupName="SortBy" VerticalContentAlignment="Center" Checked="Radio_Checked"/>
-            <RadioButton x:Name="RadioScore" Content="by Score" Grid.Row="3" FontSize="16" GroupName="SortBy" VerticalContentAlignment="Center" Grid.Column="1" Checked="Radio_Checked"/>
-            <Label x:Name="LblSearch" Content="Search" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="TxtSearch" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Stretch" FontSize="18" VerticalContentAlignment="Center" TextChanged="TxtSearch_TextChanged"/>
-            <Label x:Name="LblGenreFilter" Content="Filter by Genre" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="4"/>
-            <CheckBox x:Name="CheckAction" Content="Action" HorizontalAlignment="Stretch" Grid.Row="5" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="16" Tag="0" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckAdventure" Content="Adventure" Grid.Column="1" Grid.Row="5" VerticalContentAlignment="Center" FontSize="16" Tag="1" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckComedy" Content="Comedy" Grid.Row="6" VerticalContentAlignment="Center" FontSize="16" Tag="2" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckDrama" Content="Drama" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" FontSize="16" Tag="3" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckEcchi" Content="Ecchi" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Tag="4" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckFantasy" Content="Fantasy" Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Tag="5" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckHarem" Content="Harem" Grid.Row="8" VerticalContentAlignment="Center" FontSize="16" Tag="6" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckHistorical" Content="Historical" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" FontSize="16" Tag="7" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckHorror" Content="Horror" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Tag="8" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckIsekai" Content="Isekai" Grid.Column="1" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Tag="9" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckMagic" Content="Magic" Grid.Row="10" VerticalContentAlignment="Center" FontSize="16" Tag="10" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckMartialArts" Content="Martial Arts" Grid.Column="1" Grid.Row="10" VerticalContentAlignment="Center" FontSize="16" Tag="11" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckMecha" Content="Mecha" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Tag="12" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckMystery" Content="Mystery" Grid.Column="1" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Tag="13" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckPsychological" Content="Psychological" Grid.Row="12" VerticalContentAlignment="Center" FontSize="16" Tag="14" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckRomance" Content="Romance" Grid.Column="1" Grid.Row="12" VerticalContentAlignment="Center" FontSize="16" Tag="15" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckSchoolLife" Content="School Life" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Tag="16" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckSciFi" Content="Sci-Fi" Grid.Column="1" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Tag="17" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckShoujo" Content="Shoujo" Grid.Row="14" VerticalContentAlignment="Center" FontSize="16" Tag="18" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckShounen" Content="Shounen" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" FontSize="16" Tag="19" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckSports" Content="Sports" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Tag="20" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckSupernatural" Content="Supernatural" Grid.Column="1" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Tag="21" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckTragedy" Content="Tragedy" Grid.Row="16" VerticalContentAlignment="Center" FontSize="16" Tag="22" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
-            <CheckBox x:Name="CheckVampire" Content="Vampire" Grid.Column="1" Grid.Row="16" VerticalContentAlignment="Center" FontSize="16" Tag="23" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <Label x:Name="LblSort" Content="Sort" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="3" FontWeight="Bold"/>
+            <RadioButton x:Name="RadioTitle" Content="by Title" HorizontalAlignment="Stretch" Grid.Row="4" VerticalAlignment="Stretch" FontSize="16" GroupName="SortBy" VerticalContentAlignment="Center" Checked="Radio_Checked"/>
+            <RadioButton x:Name="RadioScore" Content="by Score" Grid.Row="4" FontSize="16" GroupName="SortBy" VerticalContentAlignment="Center" Grid.Column="1" Checked="Radio_Checked"/>
+            <Label x:Name="LblSearch" Content="Search" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" FontWeight="Bold" Grid.Row="1"/>
+            <TextBox x:Name="TxtSearch" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" Grid.Row="2" TextWrapping="NoWrap" VerticalAlignment="Center" FontSize="16" VerticalContentAlignment="Center" TextChanged="TxtSearch_TextChanged" VerticalScrollBarVisibility="Hidden" MaxLines="1" Height="35"/>
+            <Label x:Name="LblGenreFilter" Content="Filter by Genre" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="5" FontWeight="Bold"/>
+            <CheckBox x:Name="CheckAction" Content="Action" HorizontalAlignment="Stretch" Grid.Row="6" VerticalAlignment="Stretch" VerticalContentAlignment="Center" FontSize="16" Tag="0" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckAdventure" Content="Adventure" Grid.Column="1" Grid.Row="6" VerticalContentAlignment="Center" FontSize="16" Tag="1" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckComedy" Content="Comedy" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Tag="2" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckDrama" Content="Drama" Grid.Column="1" Grid.Row="7" VerticalContentAlignment="Center" FontSize="16" Tag="3" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckEcchi" Content="Ecchi" Grid.Row="8" VerticalContentAlignment="Center" FontSize="16" Tag="4" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckFantasy" Content="Fantasy" Grid.Column="1" Grid.Row="8" VerticalContentAlignment="Center" FontSize="16" Tag="5" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckHarem" Content="Harem" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Tag="6" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckHistorical" Content="Historical" Grid.Column="1" Grid.Row="9" VerticalContentAlignment="Center" FontSize="16" Tag="7" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckHorror" Content="Horror" Grid.Row="10" VerticalContentAlignment="Center" FontSize="16" Tag="8" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckIsekai" Content="Isekai" Grid.Column="1" Grid.Row="10" VerticalContentAlignment="Center" FontSize="16" Tag="9" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMagic" Content="Magic" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Tag="10" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMartialArts" Content="Martial Arts" Grid.Column="1" Grid.Row="11" VerticalContentAlignment="Center" FontSize="16" Tag="11" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMecha" Content="Mecha" Grid.Row="12" VerticalContentAlignment="Center" FontSize="16" Tag="12" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckMystery" Content="Mystery" Grid.Column="1" Grid.Row="12" VerticalContentAlignment="Center" FontSize="16" Tag="13" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckPsychological" Content="Psychological" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Tag="14" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckRomance" Content="Romance" Grid.Column="1" Grid.Row="13" VerticalContentAlignment="Center" FontSize="16" Tag="15" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSchoolLife" Content="School Life" Grid.Row="14" VerticalContentAlignment="Center" FontSize="16" Tag="16" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSciFi" Content="Sci-Fi" Grid.Column="1" Grid.Row="14" VerticalContentAlignment="Center" FontSize="16" Tag="17" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckShoujo" Content="Shoujo" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Tag="18" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckShounen" Content="Shounen" Grid.Column="1" Grid.Row="15" VerticalContentAlignment="Center" FontSize="16" Tag="19" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSports" Content="Sports" Grid.Row="16" VerticalContentAlignment="Center" FontSize="16" Tag="20" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckSupernatural" Content="Supernatural" Grid.Column="1" Grid.Row="16" VerticalContentAlignment="Center" FontSize="16" Tag="21" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckTragedy" Content="Tragedy" Grid.Row="17" VerticalContentAlignment="Center" FontSize="16" Tag="22" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <CheckBox x:Name="CheckVampire" Content="Vampire" Grid.Column="1" Grid.Row="17" VerticalContentAlignment="Center" FontSize="16" Tag="23" Checked="Check_Checked" Unchecked="Check_Unchecked"/>
+            <Button x:Name="BtnReset" Content="Reset" FontSize="20" Grid.Row="18" HorizontalAlignment="Right" Width="125" Margin="0,0,-62.5,0" Click="BtnReset_Click"/>
+            <CheckBox x:Name="CheckFavourites" Content="Show Favourites" VerticalContentAlignment="Center" FontSize="20" Grid.ColumnSpan="2" FontWeight="Bold" Checked="ShowFavourites" Unchecked="ShowFavourites"/>
         </Grid>
 
-        <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2">
+        <Grid Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,30,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -109,20 +116,20 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ListBox x:Name="ListWatching" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" Grid.Row="2" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblWatching" Content="Watching" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label x:Name="LblWatching" Content="Watching" HorizontalAlignment="Center" VerticalAlignment="Stretch" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,-8" FontWeight="Bold"/>
             <ListBox x:Name="ListPlanToWatch" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Row="5" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <Label x:Name="LblPlanToWatch" Content="Plan To Watch" Grid.Row="5" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,-8" FontWeight="Bold"/>
             <ListBox x:Name="ListFinished" Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblFinished" Content="Finished" Grid.Row="10" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <Label x:Name="LblFinished" Content="Finished" Grid.Row="10" FontSize="20" VerticalContentAlignment="Center" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,0,-8" FontWeight="Bold"/>
             <ListBox x:Name="ListDropped" Grid.Row="17" Grid.ColumnSpan="2" Grid.RowSpan="3" FontSize="16" SelectionChanged="List_SelectionChanged"/>
-            <Label x:Name="LblDropped" Content="Dropped" Grid.Row="15" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2"/>
+            <Label x:Name="LblDropped" Content="Dropped" Grid.Row="15" FontSize="20" VerticalContentAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" Margin="0,0,0,-8" FontWeight="Bold"/>
             <Label x:Name="LblHeader1" Content="Score           Type            Title" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="1"/>
             <Label x:Name="LblHeader2" Content="Score           Type            Title" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="6"/>
             <Label x:Name="LblHeader3" Content="Score           Type            Title" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="11"/>
             <Label x:Name="LblHeader4" Content="Score           Type            Title" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="16"/>
         </Grid>
 
-        <Grid Grid.Column="6" Grid.Row="1">
+        <Grid x:Name="ShowDetailsGrid" Grid.Column="6" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -155,33 +162,43 @@
                 <RowDefinition Height="5"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label x:Name="LblTitle" Content="Title" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2"/>
-            <Label x:Name="LblTitleValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="1"/>
-            <Label x:Name="LblUrl" Content="Url" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2"/>
-            <Label x:Name="LblUrlValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="8" Grid.Row="3"/>
-            <Button x:Name="BtnGo" Content="Go" Grid.Column="9" FontSize="20" Grid.Row="3" Click="BtnGo_Click"/>
-            <Label x:Name="LblType" Content="Type" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="4"/>
-            <Label x:Name="LblTypeValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="5"/>
-            <Label x:Name="LblSeason" Content="Season" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="3" Visibility="Hidden"/>
-            <Label x:Name="LblSeasonValue" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="5" Grid.Column="3" Visibility="Hidden"/>
-            <TextBox x:Name="TxtSeason" TextWrapping="Wrap" Grid.Row="5" Grid.Column="3" FontSize="24" VerticalContentAlignment="Center" Visibility="Hidden"/>
-            <Label x:Name="LblEpisode" Content="Episode" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="6" Visibility="Hidden" Grid.ColumnSpan="2"/>
-            <Label x:Name="LblEpisodeValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.Row="5" Grid.Column="6" Visibility="Hidden"/>
-            <Button x:Name="BtnEdit" Content="Edit" Grid.Column="9" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnEdit_Click"/>
+            <Label x:Name="LblTitle" Content="Title" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" FontWeight="Bold"/>
+            <Label x:Name="LblTitleValue" Content="" FontSize="22" VerticalContentAlignment="Top" Grid.ColumnSpan="10" Grid.Row="1" Margin="0,-5,0,-5"/>
+            <Label x:Name="LblUrl" Content="Url" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="2" FontWeight="Bold"/>
+            <Label x:Name="LblUrlValue" Content="" FontSize="22" VerticalContentAlignment="Top" Grid.ColumnSpan="8" Grid.Row="3" Margin="0,-5,0,-5"/>
+            <Button x:Name="BtnGo" Content="Go" Grid.Column="9" FontSize="20" Grid.Row="3" Click="BtnGo_Click" VerticalAlignment="Stretch" HorizontalAlignment="Right" Width="70" Margin="0,-5,0,5"/>
+            <Label x:Name="LblType" Content="Type" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="4" FontWeight="Bold"/>
+            <Label x:Name="LblTypeValue" Content="" FontSize="22" VerticalContentAlignment="Center" Grid.ColumnSpan="2" Grid.Row="5" Margin="0,-5,0,-5"/>
+            <Label x:Name="LblSeason" Content="Season" FontSize="20" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="3" Visibility="Hidden" Grid.ColumnSpan="3" FontWeight="Bold"/>
+            <Label x:Name="LblSeasonValue" FontSize="22" VerticalContentAlignment="Top" Grid.Row="5" Grid.Column="3" Visibility="Hidden"/>
+            <TextBox x:Name="TxtSeason" TextWrapping="Wrap" Grid.Row="5" Grid.Column="3" FontSize="22" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <Label x:Name="LblEpisode" Content="Episode" FontSize="20" VerticalContentAlignment="Bottom" Grid.Row="4" Grid.Column="6" Visibility="Hidden" Grid.ColumnSpan="2" FontWeight="Bold"/>
+            <Label x:Name="LblEpisodeValue" Content="" FontSize="22" VerticalContentAlignment="Top" Grid.Row="5" Grid.Column="6" Visibility="Hidden"/>
+            <Button x:Name="BtnEdit" Content="Edit" Grid.Column="9" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnEdit_Click" Width="70" HorizontalAlignment="Right" VerticalAlignment="Stretch"/>
             <Button x:Name="BtnPlus" Content="+" Grid.Column="7" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnPlusMinus_Click"/>
             <Button x:Name="BtnMinus" Content="-" Grid.Column="5" FontSize="20" Grid.Row="5" Visibility="Hidden" Click="BtnPlusMinus_Click"/>
-            <Label x:Name="LblScore" Content="Score" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="6"/>
-            <Label x:Name="LblScoreValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="7"/>
-            <Label x:Name="LblStatus" Content="Status" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="6" Grid.Column="3"/>
-            <Label x:Name="LblStatusValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="7" Grid.Column="3"/>
-            <Label x:Name="LblNotes" Content="Notes" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="11"/>
-            <Label x:Name="LblNotesValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="12" Grid.RowSpan="4"/>
-            <Button x:Name="BtnFavourite" Content="No" Grid.Column="1" FontSize="20" Click="BtnFavourite_Click"/>
-            <Button x:Name="BtnEditShow" Content="Edit" Grid.Column="1" FontSize="20" Grid.Row="17" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="150" Click="BtnEditShow_Click"/>
-            <Button x:Name="BtnDeleteShow" Content="Delete" Grid.Column="5" FontSize="20" Grid.Row="17" HorizontalAlignment="Left" Grid.ColumnSpan="5" Width="150" Click="BtnDeleteShow_Click"/>
-            <Label x:Name="LblGenre" Content="Genre" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="8"/>
-            <Label x:Name="LblGenreValue" Content="" FontSize="24" VerticalContentAlignment="Bottom" Grid.ColumnSpan="10" Grid.Row="9" Grid.RowSpan="2"/>
-            <TextBox x:Name="TxtEpisode" TextWrapping="Wrap" Grid.Row="5" Grid.Column="6" FontSize="24" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <Label x:Name="LblScore" Content="Score" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="6" FontWeight="Bold"/>
+            <Label x:Name="LblScoreValue" Content="" FontSize="22" VerticalContentAlignment="Top" Grid.ColumnSpan="2" Grid.Row="7" VerticalAlignment="Stretch" Margin="0,-5,0,-5"/>
+            <Label x:Name="LblStatus" Content="Status" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="7" Grid.Row="6" Grid.Column="3" FontWeight="Bold"/>
+            <Label x:Name="LblStatusValue" Content="" FontSize="22" VerticalContentAlignment="Top" Grid.ColumnSpan="7" Grid.Row="7" Grid.Column="3" Margin="0,-5,0,-5"/>
+            <Label x:Name="LblNotes" Content="Notes" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="11" FontWeight="Bold"/>
+            <Label x:Name="LblNotesValue" FontSize="22" VerticalContentAlignment="Top" Grid.ColumnSpan="10" Grid.Row="12" Grid.RowSpan="4" Margin="0,-5,0,-5">
+                <TextBlock x:Name="TxtBlockNotes" TextWrapping="Wrap"/>
+            </Label>
+            <Button x:Name="BtnFavourite" Content="Remove from Favourites" Grid.Column="5" FontSize="20" Click="BtnFavourite_Click" Grid.ColumnSpan="5"/>
+            <Button x:Name="BtnEditShow" Content="Edit" Grid.Column="1" FontSize="20" Grid.Row="17" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="150" Click="BtnEditShow_Click" VerticalAlignment="Stretch" Margin="0,0,20,0"/>
+            <Button x:Name="BtnDeleteShow" Content="Delete" Grid.Column="5" FontSize="20" Grid.Row="17" HorizontalAlignment="Left" Grid.ColumnSpan="5" Width="150" Click="BtnDeleteShow_Click" VerticalAlignment="Stretch" Margin="-20,0,0,0"/>
+            <Label x:Name="LblGenre" Content="Genre" FontSize="20" VerticalContentAlignment="Bottom" Grid.ColumnSpan="2" Grid.Row="8" FontWeight="Bold"/>
+            <Label x:Name="LblGenreValue" FontSize="22" VerticalContentAlignment="Top" Grid.ColumnSpan="10" Grid.Row="9" Grid.RowSpan="2" Margin="0,-5,0,-5">
+                <TextBlock x:Name="TxtBlockGenre" TextWrapping="Wrap"/>
+            </Label>
+            <TextBox x:Name="TxtEpisode" TextWrapping="Wrap" Grid.Row="5" Grid.Column="6" FontSize="22" VerticalContentAlignment="Center" Visibility="Hidden"/>
+        </Grid>
+
+        <Grid x:Name="ShowImageGrid" Grid.Column="6" Visibility="Hidden" Grid.RowSpan="2">
+            <Grid.Background>
+                <ImageBrush Stretch="None" ImageSource="/Images/Ichigo.png" AlignmentY="Bottom"/>
+            </Grid.Background>
         </Grid>
     </Grid>
 </Window>
